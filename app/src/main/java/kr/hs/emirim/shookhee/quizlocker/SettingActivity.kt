@@ -9,12 +9,13 @@ import android.preference.MultiSelectListPreference
 import android.preference.PreferenceFragment
 import android.preference.SwitchPreference
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_setting.*
 
-class MainActivity : AppCompatActivity() {
+class SettingActivity : AppCompatActivity() {
     val fragment = MyPreferenceFragment()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_setting)
         // preferenceContent FrameLayout 영역을 PreferenceFragment 로 교체
         fragmentManager.beginTransaction().replace(R.id.preferenceContent, fragment).commit()
 

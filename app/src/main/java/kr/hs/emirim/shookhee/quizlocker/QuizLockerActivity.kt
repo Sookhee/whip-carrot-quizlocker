@@ -2,6 +2,10 @@ package kr.hs.emirim.shookhee.quizlocker
 
 import android.app.KeyguardManager
 import android.content.Context
+import android.media.MediaPlayer
+import android.media.Ringtone
+import android.media.RingtoneManager
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -24,6 +28,7 @@ class QuizLockerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // 잠금화면보다 상단에 위치하기 위한 설정 조정. 버전별로 사용법이 다르기 때문에 버전에 따라 적용
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
             // 잠금화면에서 보여지도록 설정
             setShowWhenLocked(true)
@@ -100,16 +105,25 @@ class QuizLockerActivity : AppCompatActivity() {
 
     // 정답 체크 함수
     fun checkChoice(choice: String) {
+
+
         quiz?.let {
             when {
                 // choice 의 텍스트가 정답 텍스트와 같으면 Activity 종료
                 choice == it.getString("answer") -> {
+
+                    val path : Uri = Uri.parse("android.resource://"+packageName+"/raw/carrotsound.mp3")
+                    val carrotSound : Ringtone = RingtoneManager.getRingtone(this, path)
+                    carrotSound.play()
+
+
                     // 정답인 경우 정답횟수 증가
                     val id = it.getInt("id").toString()
                     var count = correctAnswerPref.getInt(id, 0)
                     count++
                     correctAnswerPref.edit().putInt(id, count).apply()
                     correctCountLabel.text = "정답횟수: ${count}"
+
                     // Activity 종료
                     finish()
                 }

@@ -1,44 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="kr.hs.emirim.shookhee.quizlocker">
+        package="kr.hs.emirim.shookhee.quizlocker">
 
     <uses-permission
-            android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="18"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
-    <uses-permission android:name="android.permission.VIBRATE"/>
+            android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+            android:maxSdkVersion="18" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
-           android:allowBackup="true"
-           android:icon="@mipmap/ic_launcher"
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".QuizLockerActivity">
-        </activity>
+        <activity android:name=".DailyQuizActivity"></activity>
+        <activity android:name=".RoomActivity" />
+        <activity
+                android:name=".LoadingActivity"
+                android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity android:name=".SettingActivity" />
+        <activity android:name=".QuizLockerActivity" />
 
         <service
                 android:name=".LockScreenService"
                 android:enabled="true"
-                android:exported="true">
-        </service>
+                android:exported="true" />
 
-        <activity android:name=".ScreenOffExActivity">
-
-        </activity>
-        <activity android:name=".PrefFragmentActivity">
-
-        </activity>
-        <activity android:name=".PrefExActivity">
-        </activity>
-        <activity android:name=".FileExActivity">
-        </activity>
+        <activity android:name=".ScreenOffExActivity" />
+        <activity android:name=".PrefFragmentActivity" />
+        <activity android:name=".PrefExActivity" />
+        <activity android:name=".FileExActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
@@ -46,7 +45,7 @@
                 android:name=".BootCompleteReceiver"
                 android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
     </application>

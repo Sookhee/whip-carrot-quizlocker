@@ -19,5 +19,20 @@
     "choice1": "베이루트",
     "choice2": "비엔티안",
     "answer": "베이루트"
+  },
+  {
+    "id": 4,
+    "question": "민지의\n생일은?",
+    "choice1": "7",
+    "choice2": "8",
+    "answer": "8"
+  },
+  {
+    "id": 5,
+    "question": "2-1담임\n이름은?",
+    "choice1": "호걸",
+    "choice2": "첳릐",
+    "answer": "호걸"
   }
+
 ]
