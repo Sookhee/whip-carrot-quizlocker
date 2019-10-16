@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "525755075404",
+    "firebase_url": "https://whipe-carrot-b8ab1.firebaseio.com",
+    "project_id": "whipe-carrot-b8ab1",
+    "storage_bucket": "whipe-carrot-b8ab1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525755075404:android:00b3b7b6da05e291925de9",
+        "android_client_info": {
+          "package_name": "kr.hs.emirim.shookhee.quizlocker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "525755075404-5j634pebb42v7q85j5rortqsc8fpnins.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCv_apLHgqJ719QJG2qnXoPULid7BTB5iU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "525755075404-5j634pebb42v7q85j5rortqsc8fpnins.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -16,7 +16,9 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".DailyQuizActivity"></activity>
+        <activity android:name=".AnswerActivity"
+                android:theme="@style/popupTheme" android:screenOrientation="portrait"></activity>
+        <activity android:name=".DailyQuizActivity" />
         <activity android:name=".RoomActivity" />
         <activity
                 android:name=".LoadingActivity"

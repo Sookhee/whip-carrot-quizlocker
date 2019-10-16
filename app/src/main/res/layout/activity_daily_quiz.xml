@@ -29,6 +29,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="8dp"
+                android:onClick="gosetting"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -46,13 +47,161 @@
                 app:srcCompat="@drawable/backkey" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-            android:id="@+id/textView4"
-            android:layout_width="95dp"
-            android:layout_height="22dp"
-            android:text="daily quiz"
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <ScrollView
+                android:id="@+id/scrollView2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="#FFC107"
+                    android:orientation="vertical"
+                    android:paddingBottom="8dp">
+
+                <TextView
+                        android:id="@+id/quiz_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:gravity="center"
+                        android:text="001 : 스택"
+                        android:textSize="26sp" />
+
+                <TextView
+                        android:id="@+id/quiz_quiz"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="8dp"
+                        android:lineSpacingExtra="8sp"
+                        android:text="정수를 저장하는 스택을 구현한 다음, 입력으로 주어지는 명령을 처리하는 프로그램을 작성하시오. \n\n 명령은 총 다섯 가지이다. \n\n -push X: 정수 X를 스택에 넣는 연산이다.\n -pop: 스택에서 가장 위에 있는 정수를 빼고, 그 수를 출력한다. 만약 스택에 들어있는 정수가 없는 경우에는 -1을 출력한다.\n -size: 스택에 들어있는 정수의 개수를 출력한다.\n -empty: 스택이 비어있으면 1, 아니면 0을 출력한다.\n -top: 스택의 가장 위에 있는 정수를 출력한다. 만약 스택에 들어있는 정수가 없는 경우에는 -1을 출력한다.\n"
+                        android:textColor="#99000000"
+                        android:textSize="16sp" />
+
+                <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="입력"
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                <TextView
+                        android:id="@+id/quiz_input2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="첫째 줄에 주어지는 명령의 수 N (1 ≤ N ≤ 10,000)이 주어진다. 둘째 줄부터 N개의 줄에는 명령이 하나씩 주어진다. 주어지는 정수는 1보다 크거나 같고, 100,000보다 작거나 같다. 문제에 나와있지 않은 명령이 주어지는 경우는 없다.1 5"
+                        android:textColor="#99000000"
+                        android:textSize="16sp" />
+
+                <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="출력"
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                <TextView
+                        android:id="@+id/quiz_output2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="출력해야하는 명령이 주어질 때마다, 한 줄에 하나씩 출력한다."
+                        android:textColor="#99000000"
+                        android:textSize="16sp" />
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="입력 예시"
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                <TextView
+                        android:id="@+id/quiz_input_ex"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="7\npop\ntop\npush\n123\ntop\npop\ntop\npop"
+                        android:textColor="#99000000"
+                        android:textSize="16sp" />
+
+                <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="출력 예시"
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                <TextView
+                        android:id="@+id/quiz_output_ex"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="-1\n-1\n123\n123\n-1\n-1"
+                        android:textColor="#99000000"
+                        android:textSize="16sp" />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+                android:id="@+id/button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:onClick="onanswer"
+                android:text="정답보기"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
