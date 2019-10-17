@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">quizlocker</string>
+    <string name="app_name">채찍채찍당근</string>
     <string-array name="category">
-        <item>일반상식</item>
-        <item>역사</item>
-        <item>수도</item>
+        <item>"자바"</item>
+        <item>C</item>
+        <item>자료구조</item>
     </string-array>
+
 </resources>

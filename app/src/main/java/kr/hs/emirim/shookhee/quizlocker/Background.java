@@ -4,15 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
-public class RoomActivity extends AppCompatActivity {
+public class Background extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_room);
-
+        setContentView(R.layout.activity_background);
     }
 
     public void onback(View v){

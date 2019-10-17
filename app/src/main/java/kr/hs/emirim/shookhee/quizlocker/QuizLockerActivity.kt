@@ -2,6 +2,7 @@ package kr.hs.emirim.shookhee.quizlocker
 
 import android.app.KeyguardManager
 import android.content.Context
+import android.content.Intent
 import android.media.MediaPlayer
 import android.media.Ringtone
 import android.media.RingtoneManager
@@ -105,17 +106,15 @@ class QuizLockerActivity : AppCompatActivity() {
 
     // 정답 체크 함수
     fun checkChoice(choice: String) {
-
+        var mediaplayer : MediaPlayer?= null
 
         quiz?.let {
             when {
                 // choice 의 텍스트가 정답 텍스트와 같으면 Activity 종료
                 choice == it.getString("answer") -> {
 
-                    val path : Uri = Uri.parse("android.resource://"+packageName+"/raw/carrotsound.mp3")
-                    val carrotSound : Ringtone = RingtoneManager.getRingtone(this, path)
-                    carrotSound.play()
-
+                    mediaplayer = MediaPlayer.create(this, R.raw.correct)
+                    mediaplayer?.start()
 
                     // 정답인 경우 정답횟수 증가
                     val id = it.getInt("id").toString()
@@ -123,6 +122,9 @@ class QuizLockerActivity : AppCompatActivity() {
                     count++
                     correctAnswerPref.edit().putInt(id, count).apply()
                     correctCountLabel.text = "정답횟수: ${count}"
+                    var intent = Intent(this, PopupActivity::class.java)
+                    intent.putExtra("quizcheck", "true")
+                    startActivity(intent)
 
                     // Activity 종료
                     finish()
@@ -134,6 +136,7 @@ class QuizLockerActivity : AppCompatActivity() {
                     count++
                     wrongAnswerPref.edit().putInt(id, count).apply()
                     wrongCountLabel.text = "오답횟수: ${count}"
+
                     // 정답이 아닌경우 UI 초기화
                     leftImageView.setImageResource(R.drawable.padlock)
                     rightImageView.setImageResource(R.drawable.padlock)
@@ -148,6 +151,13 @@ class QuizLockerActivity : AppCompatActivity() {
                         // 1초동안 진동
                         vibrator.vibrate(1000)
                     }
+
+                    mediaplayer = MediaPlayer.create(this, R.raw.wrong)
+                    mediaplayer?.start()
+
+
+                    var intent = Intent(this, PopupWhipeActivity::class.java)
+                    startActivity(intent)
                 }
             }
         }

@@ -8,6 +8,8 @@
         tools:context=".SettingActivity">
     <Button
             android:text="정답, 오답 횟수 초기화"
+            android:textColor="@color/colorPrimaryDark"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content" android:id="@+id/initButton" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"

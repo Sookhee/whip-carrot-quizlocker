@@ -2,59 +2,76 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="300dp"
+        android:layout_width="360dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#eeeeee">
-    
+        android:background="#F5F5F5"
+        android:orientation="vertical">
+
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-        
+
         <TextView
                 android:id="@+id/titleTv"
                 android:layout_width="match_parent"
                 android:layout_height="53dp"
-                android:text="팝업 테스트"
+                android:background="@color/colorPrimary"
                 android:gravity="center"
+                android:text="정답"
                 android:textColor="#fff"
-                android:background="@color/colorPrimary"/>
+                android:textSize="18sp"
+                android:textStyle="bold" />
     </LinearLayout>
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="500dp">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10sp">
+
+            <TextView
+                    android:id="@+id/txtText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="using namespace std;\nint n, a;\nstack&lt;int&gt; sta;\nstring str;\nint main() {\n	for (scanf(&quot;%d&quot;, &amp;n); n; n--) {\n            cin &gt;&gt; str;\n            if (str == &quot;push&quot;) {\n                 scanf(&quot;%d&quot;, &amp;a);\n                 sta.push(a);\n            }\n            else if (str == &quot;pop&quot;) {\n                 if (sta.empty()) printf(&quot;-1&quot;);\n            else printf(&quot;%d&quot;, sta.top()), sta.pop();\n            }\n            else if (str == &quot;size&quot;) {\n               printf(&quot;%d&quot;, sta.size());\n            }\n            else if (str == &quot;empty&quot;) {\n              printf(&quot;%d&quot;, sta.empty());\n            }\n            else {\n                if (sta.empty()) printf(&quot;-1&quot;);\n            else printf(&quot;%d&quot;, sta.top());\n         }\n      }\n   return 0;\n}"
+                    android:textColor="#000" />
+
+        </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="24dp"
+            android:gravity="center"
             android:orientation="vertical">
+
         <TextView
-                android:id="@+id/txtText"
+                android:id="@+id/answerBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#000"
-                android:text="팝업테스트 부제목"
-                android:layout_gravity="center"/>
-    </LinearLayout>
-    
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+                android:layout_margin="10dp"
+                android:gravity="right"
+                android:onClick="mAnswer"
+                android:text="더 많은 정답 확인하기>>" />
 
         <Button
                 android:id="@+id/okBtn"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="10dp"
+                android:background="#F5F5F5"
                 android:onClick="mOk"
-                android:text="확인" />
-
-        <Button
-                android:id="@+id/cancelBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="mCancel"
-                android:text="취소" />
+                android:text="확인"
+                android:textColor="@color/colorPrimaryDark" />
 
     </LinearLayout>
 
