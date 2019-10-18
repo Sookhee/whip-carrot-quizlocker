@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
             android:allowBackup="true"
@@ -17,9 +17,12 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".PopupWhipeActivity"
+        <activity android:name=".BackgroundActivity"></activity>
+        <activity android:name=".Illust" />
+        <activity
+                android:name=".PopupWhipeActivity"
                 android:screenOrientation="portrait"
-                android:theme="@style/popupTheme"/>
+                android:theme="@style/popupTheme" />
         <activity
                 android:name=".PopupActivity"
                 android:screenOrientation="portrait"
