@@ -1,9 +1,6 @@
 # Whip-Carrot_quizlocker
 2019 미림 소프트웨어 챌린지 최우수작
 
-## Download
-NULL
-
 ## Features
 * 잠금화면 전공 퀴즈
   * 슬라이드 형식 전공 퀴즈로 일상 생활에서도 자연스럽게 전공 지식을 쌓을 수 있습니다
