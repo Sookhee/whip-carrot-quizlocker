@@ -5,9 +5,9 @@
             android:defaultValue="false"
             android:title="퀴즈 잠금화면 사용" android:key="useLockScreen"/>
     <MultiSelectListPreference
-            android:defaultValue="@array/category"
-            android:entries="@array/category"
-            android:entryValues="@array/category"
+            android:defaultValue="@array/categorys"
+            android:entries="@array/categorys"
+            android:entryValues="@array/categorys"
             android:key="category"
             android:summary="자바, C, 자료구조"
             android:title="퀴즈 종류(전공)" />

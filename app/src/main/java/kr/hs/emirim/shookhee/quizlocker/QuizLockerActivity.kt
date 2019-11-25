@@ -3,6 +3,7 @@ package kr.hs.emirim.shookhee.quizlocker
 import android.app.KeyguardManager
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.media.MediaPlayer
 import android.media.Ringtone
 import android.media.RingtoneManager
@@ -12,9 +13,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
+import android.util.Log
 import android.view.WindowManager
 import android.widget.SeekBar
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_quiz_locker.*
+import kr.hs.emirim.shookhee.quizlocker.SaveSharedPreference.PREF_LEVEL
 import org.json.JSONArray
 import org.json.JSONObject
 import java.util.*
@@ -25,6 +29,7 @@ class QuizLockerActivity : AppCompatActivity() {
     val wrongAnswerPref by lazy { getSharedPreferences("wrongAnswer", Context.MODE_PRIVATE) }
     // 오답횟수 저장 SharedPreference
     val correctAnswerPref by lazy { getSharedPreferences("correctAnswer", Context.MODE_PRIVATE) }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -136,6 +141,7 @@ class QuizLockerActivity : AppCompatActivity() {
                     count++
                     wrongAnswerPref.edit().putInt(id, count).apply()
                     wrongCountLabel.text = "오답횟수: ${count}"
+
 
                     // 정답이 아닌경우 UI 초기화
                     leftImageView.setImageResource(R.drawable.padlock)

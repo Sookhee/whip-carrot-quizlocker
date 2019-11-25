@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">채찍채찍당근</string>
-    <string-array name="category">
-        <item>"자바"</item>
+    <string-array name="categorys">
+        <item>자바</item>
         <item>C</item>
         <item>자료구조</item>
     </string-array>

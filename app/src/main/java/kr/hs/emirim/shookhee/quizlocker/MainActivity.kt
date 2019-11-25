@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val intent = Intent(this, LoadingActivity::class.java)
         startActivity(intent)
 
@@ -26,21 +27,18 @@ class MainActivity : AppCompatActivity() {
         gosetting.setOnClickListener {
             val nextIntent = Intent(this, SettingActivity::class.java)
             startActivity(nextIntent)
-            Toast.makeText(this@MainActivity, "설정클릭", Toast.LENGTH_SHORT).show()
         }
 
         //오늘의 퀴즈로 이동
         godailyquiz.setOnClickListener {
             val nextIntent = Intent(this, DailyQuizActivity::class.java)
             startActivity(nextIntent)
-            Toast.makeText(this@MainActivity, "오늘의 퀴즈 클릭", Toast.LENGTH_SHORT).show()
         }
 
         //방으로 이동
         goroom.setOnClickListener {
             val nextIntent = Intent(this, RoomActivity::class.java)
             startActivity(nextIntent)
-            Toast.makeText(this@MainActivity, "방 클릭", Toast.LENGTH_SHORT).show()
         }
 
     }

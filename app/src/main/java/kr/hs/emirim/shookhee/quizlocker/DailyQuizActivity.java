@@ -66,7 +66,7 @@ public class DailyQuizActivity extends AppCompatActivity {
     }
 
     public void onanswer(View v){
-        Toast.makeText(getApplicationContext(), "클릭", Toast.LENGTH_SHORT).show();
+
         Intent intent = new Intent(this, AnswerActivity.class);
         startActivity(intent);
     }

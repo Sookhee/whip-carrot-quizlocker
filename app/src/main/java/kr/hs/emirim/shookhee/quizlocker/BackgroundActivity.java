@@ -2,6 +2,8 @@ package kr.hs.emirim.shookhee.quizlocker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +17,7 @@ public class BackgroundActivity extends AppCompatActivity {
     Button bgl2;
     Button bgl3;
 
-    int level = 7;
+    int level = SaveSharedPreference.getPrefLevel(BackgroundActivity.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,16 +29,20 @@ public class BackgroundActivity extends AppCompatActivity {
 
     }
 
+    public void gosetting(View v){
+        Intent intent = new Intent(this, SettingActivity.class);
+        startActivity(intent);
+    }
 
-    public void stage2(View v){
+    public void onstage2(View v){
         bgl2 = (Button)findViewById(R.id.bg2);
-        if(level>=5) {
+        if(level>=10) {
             bgl2.setVisibility(View.GONE);
         }
     }
-    public void stage3(View v){
+    public void onstage3(View v){
         bgl3 = (Button)findViewById(R.id.bg3);
-        if(level>=10) {
+        if(level>=20) {
             bgl3.setVisibility(View.GONE);
         }
     }

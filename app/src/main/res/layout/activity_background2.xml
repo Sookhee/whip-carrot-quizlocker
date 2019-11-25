@@ -4,7 +4,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Background">
+        tools:context=".BackgroundActivity">
 
     <LinearLayout
             android:layout_width="0dp"
@@ -21,16 +21,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
 
-            <Button
-                    android:id="@+id/bg1"
-                    android:layout_width="350dp"
-                    android:layout_height="157dp"
-                    android:layout_margin="10dp"
-                    android:text="1단계"
+            <ImageView
+                    android:id="@+id/lock"
+                    android:layout_width="342dp"
+                    android:layout_height="142dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/room1" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -46,14 +46,18 @@
                     app:layout_constraintEnd_toEndOf="@+id/bg2"
                     app:layout_constraintStart_toStartOf="@+id/bg2"
                     app:layout_constraintTop_toTopOf="@+id/bg2"
-                    app:srcCompat="@drawable/locked" />
+                    app:srcCompat="@drawable/room2" />
 
             <Button
                     android:id="@+id/bg2"
                     android:layout_width="350dp"
                     android:layout_height="157dp"
-                    android:onClick="stage2"
-                    android:text="2단계"
+                    android:background="@color/colorPrimaryDark"
+                    android:onClick="onstage2"
+                    android:text="2단계\nLv.10 이상"
+                    android:textColor="#fff"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -73,14 +77,18 @@
                     app:layout_constraintEnd_toEndOf="@+id/bg3"
                     app:layout_constraintStart_toStartOf="@+id/bg3"
                     app:layout_constraintTop_toTopOf="@+id/bg3"
-                    app:srcCompat="@drawable/locked" />
+                    app:srcCompat="@drawable/room3" />
 
             <Button
                     android:id="@+id/bg3"
                     android:layout_width="350dp"
                     android:layout_height="157dp"
-                    android:onClick="stage3"
-                    android:text="3단계"
+                    android:background="@color/colorPrimaryDark"
+                    android:onClick="onstage3"
+                    android:text="3단계\nLv.20 이상"
+                    android:textColor="#fff"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -92,14 +100,15 @@
             android:id="@+id/constraintLayout"
             android:layout_width="0dp"
             android:layout_height="60dp"
+            android:background="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -108,19 +117,20 @@
 
         <ImageView
                 android:id="@+id/gosetting"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="8dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="16dp"
+                android:onClick="gosetting"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/setting" />
+                app:srcCompat="@drawable/settings" />
 
         <ImageView
                 android:id="@+id/back"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="16dp"
                 android:onClick="onback"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

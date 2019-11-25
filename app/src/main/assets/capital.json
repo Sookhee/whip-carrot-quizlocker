@@ -1,38 +1,31 @@
 [
   {
     "id": 1,
-    "question": "대한민국의\n수도는?",
-    "choice1": "서울",
-    "choice2": "뉴욕",
-    "answer": "서울"
+    "question": "c에서는 malloc을 사용해\n동적할당을 받을 수 있다.",
+    "choice1": "O",
+    "choice2": "X",
+    "answer": "O"
   },
   {
     "id": 2,
-    "question": "네팔의\n수도는?",
-    "choice1": "딜리",
-    "choice2": "카트만두",
-    "answer": "카트만두"
+    "question": "퀵 정렬의 시간복잡도로\n알맞은 것은?",
+    "choice1": "O(n)",
+    "choice2": "O(n * log n)",
+    "answer": "O(n * log n)"
   },
   {
     "id": 3,
-    "question": "라오스의\n수도는?",
-    "choice1": "베이루트",
-    "choice2": "비엔티안",
-    "answer": "베이루트"
+    "question": "상위 클래스의 메소드를\n하위 클래스가 재정의해서\n사용하는 방법으로 알맞은 것은?",
+    "choice1": "오버로딩",
+    "choice2": "오버라이딩",
+    "answer": "오버라이딩"
   },
   {
     "id": 4,
-    "question": "민지의\n생일은?",
-    "choice1": "7",
-    "choice2": "8",
-    "answer": "8"
-  },
-  {
-    "id": 5,
-    "question": "2-1담임\n이름은?",
-    "choice1": "호걸",
-    "choice2": "첳릐",
-    "answer": "호걸"
+    "question": "input type=\"radio\"는\n여러가지를 선택할 수 있는 속성이다",
+    "choice1": "O",
+    "choice2": "X",
+    "answer": "O"
   }
 
 ]
