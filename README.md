@@ -1,5 +1,5 @@
 # Whip-Carrot_quizlocker
-2019 미림 소프트웨어 챌린지 최우수작
+2019 미림 소프트웨어 챌린지 최우수작\n2019 CAU LINC+ FESTIVAL 고등부 발표
 
 ## Features
 * 잠금화면 전공 퀴즈
