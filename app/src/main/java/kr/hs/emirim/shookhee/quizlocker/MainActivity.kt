@@ -29,18 +29,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(nextIntent)
         }
 
-        //오늘의 퀴즈로 이동
-        godailyquiz.setOnClickListener {
-            val nextIntent = Intent(this, DailyQuizActivity::class.java)
-            startActivity(nextIntent)
-        }
-
-        //방으로 이동
-        goroom.setOnClickListener {
-            val nextIntent = Intent(this, RoomActivity::class.java)
-            startActivity(nextIntent)
-        }
-
     }
 
 

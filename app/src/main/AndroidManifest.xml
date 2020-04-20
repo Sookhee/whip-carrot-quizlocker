@@ -18,7 +18,6 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity android:name=".BackgroundActivity"></activity>
-        <activity android:name=".Illust" />
         <activity
                 android:name=".PopupWhipeActivity"
                 android:screenOrientation="portrait"
@@ -27,12 +26,6 @@
                 android:name=".PopupActivity"
                 android:screenOrientation="portrait"
                 android:theme="@style/popupTheme" />
-        <activity
-                android:name=".AnswerActivity"
-                android:screenOrientation="portrait"
-                android:theme="@style/popupTheme" />
-        <activity android:name=".DailyQuizActivity" />
-        <activity android:name=".RoomActivity" />
         <activity
                 android:name=".LoadingActivity"
                 android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
