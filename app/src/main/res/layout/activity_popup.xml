@@ -30,7 +30,7 @@
             android:layout_height="200dp"
             android:layout_gravity="center"
             android:layout_margin="20dp"
-            app:srcCompat="@drawable/correct" />
+            app:srcCompat="@drawable/wrong" />
 
     <LinearLayout
             android:layout_width="match_parent"
