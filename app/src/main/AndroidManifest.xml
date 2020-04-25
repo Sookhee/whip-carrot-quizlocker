@@ -17,7 +17,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".BackgroundActivity"></activity>
+        <activity android:name=".CollectionActivity"></activity>
+<!--        <activity android:name=".BackgroundActivity" />-->
         <activity
                 android:name=".PopupWhipeActivity"
                 android:screenOrientation="portrait"
@@ -56,6 +57,9 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+        <meta-data
+                android:name="preloaded_fonts"
+                android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
