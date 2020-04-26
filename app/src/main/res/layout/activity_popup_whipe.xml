@@ -14,7 +14,8 @@
             android:layout_height="18dp"
             android:layout_marginStart="15dp"
             android:layout_marginTop="15dp"
-            android:background="@drawable/backkey"
+            android:stateListAnimator="@null"
+            android:background="@drawable/icon_cancel"
             android:onClick="mOk"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
