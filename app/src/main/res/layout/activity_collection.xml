@@ -23,8 +23,19 @@
             android:layout_height="60dp"
             android:background="#ff8448"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+                android:id="@+id/goback"
+                android:layout_width="19dp"
+                android:layout_height="36dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/collection_bartext"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/icon_white_left" />
 
         <EditText
                 android:id="@+id/collection_bartext"
@@ -35,9 +46,9 @@
                 android:fontFamily="@font/notosanscjkkr_medium"
                 android:inputType="textPersonName"
                 android:text="당근 도감"
-                android:textSize="20sp"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/gosetting"
                 app:layout_constraintStart_toStartOf="parent"
