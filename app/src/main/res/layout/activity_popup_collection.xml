@@ -7,12 +7,12 @@
         tools:context=".PopupCollectionActivity" >
 
     <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/calcelbtn"
             android:layout_width="18dp"
             android:layout_height="18dp"
             android:layout_marginLeft="18dp"
             android:layout_marginTop="18dp"
-            app:srcCompat="@drawable/border" />
+            app:srcCompat="@drawable/icon_cancel" />
 
     <ImageView
             android:id="@+id/imageView16"
