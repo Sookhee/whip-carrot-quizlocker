@@ -67,28 +67,28 @@ class QuizLockerActivity : AppCompatActivity() {
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             // progress 값이 변경될때 불리는 함수
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                when {
-                    // SeekBar 의 우측 끝으로 가면 choice2 를 선택한 것으로 간주한다
-                    progress > 95 -> {
-                        leftImageView.setImageResource(R.drawable.padlock)
-                        // 우측 이미지뷰의 자물쇠 아이콘을 열림 아이콘으로 변경
-                        rightImageView.setImageResource(R.drawable.unlock)
-                    }
-                    // SeekBar 의 좌측 끝으로 가면 choice1 을 선택한 것으로 간주한다
-                    progress < 5 -> {
-                        // 좌측 이미지뷰의 자물쇠 아이콘을 열림 아이콘으로 변경
-                        leftImageView.setImageResource(R.drawable.unlock)
-                        rightImageView.setImageResource(R.drawable.padlock)
-                    }
-
-
-                    // 양쪽 끝이 아닌 경우
-                    else -> {
-                        // 양쪽 이미지를 모두 잠금 아이콘으로 변경
-                        leftImageView.setImageResource(R.drawable.padlock)
-                        rightImageView.setImageResource(R.drawable.padlock)
-                    }
-                }
+//                when {
+//                    // SeekBar 의 우측 끝으로 가면 choice2 를 선택한 것으로 간주한다
+//                    progress > 95 -> {
+//                        leftImageView.setImageResource(R.drawable.padlock)
+//                        // 우측 이미지뷰의 자물쇠 아이콘을 열림 아이콘으로 변경
+//                        rightImageView.setImageResource(R.drawable.unlock)
+//                    }
+//                    // SeekBar 의 좌측 끝으로 가면 choice1 을 선택한 것으로 간주한다
+//                    progress < 5 -> {
+//                        // 좌측 이미지뷰의 자물쇠 아이콘을 열림 아이콘으로 변경
+//                        leftImageView.setImageResource(R.drawable.unlock)
+//                        rightImageView.setImageResource(R.drawable.padlock)
+//                    }
+//
+//
+//                    // 양쪽 끝이 아닌 경우
+//                    else -> {
+//                        // 양쪽 이미지를 모두 잠금 아이콘으로 변경
+//                        leftImageView.setImageResource(R.drawable.padlock)
+//                        rightImageView.setImageResource(R.drawable.padlock)
+//                    }
+//                }
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -127,9 +127,9 @@ class QuizLockerActivity : AppCompatActivity() {
                     count++
                     correctAnswerPref.edit().putInt(id, count).apply()
                     correctCountLabel.text = "정답횟수: ${count}"
-                    var intent = Intent(this, PopupActivity::class.java)
-                    intent.putExtra("quizcheck", "true")
-                    startActivity(intent)
+//                    var intent = Intent(this, PopupActivity::class.java)
+//                    intent.putExtra("quizcheck", "true")
+//                    startActivity(intent)
 
                     // Activity 종료
                     finish()
@@ -144,8 +144,8 @@ class QuizLockerActivity : AppCompatActivity() {
 
 
                     // 정답이 아닌경우 UI 초기화
-                    leftImageView.setImageResource(R.drawable.padlock)
-                    rightImageView.setImageResource(R.drawable.padlock)
+//                    leftImageView.setImageResource(R.drawable.padlock)
+//                    rightImageView.setImageResource(R.drawable.padlock)
                     seekBar?.progress = 50
                     // 정답이 아닌 경우 진동알림 추가
                     val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator

@@ -2,10 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="250dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
         android:background="#f1f1f1">
 
     <Button
@@ -14,9 +12,9 @@
             android:layout_height="18dp"
             android:layout_marginStart="15dp"
             android:layout_marginTop="15dp"
-            android:stateListAnimator="@null"
             android:background="@drawable/icon_cancel"
             android:onClick="mOk"
+            android:stateListAnimator="@null"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,13 +32,13 @@
 
     <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="270dp"
+            android:layout_height="160dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginEnd="64dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
             app:srcCompat="@drawable/popup_wrong" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
