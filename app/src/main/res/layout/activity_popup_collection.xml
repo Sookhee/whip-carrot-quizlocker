@@ -22,7 +22,7 @@
             android:layout_marginTop="28dp"
             android:layout_marginRight="112.5dp"
             android:layout_marginBottom="28dp"
-            app:srcCompat="@drawable/carrot_character01" />
+            app:srcCompat="@drawable/carrot_gray" />
 
     <TextView
             android:id="@+id/textView2"
