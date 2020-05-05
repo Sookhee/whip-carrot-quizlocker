@@ -418,7 +418,7 @@
                             app:layout_constraintEnd_toEndOf="@+id/view10"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/carrot_character01" />
+                            app:srcCompat="@drawable/carrot_character10" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -437,18 +437,27 @@
                             android:background="@drawable/bg_rounded"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-                    <ImageView
-                            android:id="@+id/imageView11"
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
+                    <EditText
+                            android:id="@+id/editText"
+                            android:layout_width="24.5dp"
+                            android:layout_height="74dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:fontFamily="@font/notosanscjkkr_medium"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:inputType="textPersonName"
+                            android:text="?"
+                            android:textAlignment="center"
+                            android:textSize="50sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/view11"
                             app:layout_constraintEnd_toEndOf="@+id/view11"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/carrot_character01" />
+                            app:layout_constraintStart_toStartOf="@+id/view11"
+                            app:layout_constraintTop_toTopOf="@+id/view11" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -470,17 +479,25 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-                    <ImageView
-                            android:id="@+id/imageView12"
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
+                    <EditText
+                            android:id="@+id/editText2"
+                            android:layout_width="24.5dp"
+                            android:layout_height="74dp"
+                            android:layout_marginBottom="1dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:fontFamily="@font/notosanscjkkr_medium"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:inputType="textPersonName"
+                            android:text="?"
+                            android:textAlignment="center"
+                            android:textSize="50sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/view12"
                             app:layout_constraintEnd_toEndOf="@+id/view12"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/carrot_character01" />
+                            app:layout_constraintStart_toStartOf="@+id/view12"
+                            app:layout_constraintTop_toTopOf="@+id/view12" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
 
@@ -511,15 +528,23 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.0" />
 
-                    <ImageView
-                            android:id="@+id/imageView13"
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
+                    <EditText
+                            android:id="@+id/editText4"
+                            android:layout_width="24.5dp"
+                            android:layout_height="74dp"
+                            android:layout_marginBottom="1dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:fontFamily="@font/notosanscjkkr_medium"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:inputType="textPersonName"
+                            android:text="?"
+                            android:textAlignment="center"
+                            android:textSize="50sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/view13"
                             app:layout_constraintEnd_toEndOf="@+id/view13"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/carrot_character01" />
+                            app:layout_constraintStart_toStartOf="@+id/view13"
+                            app:layout_constraintTop_toTopOf="@+id/view13" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -541,15 +566,23 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-                    <ImageView
-                            android:id="@+id/imageView14"
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
+                    <EditText
+                            android:id="@+id/editText6"
+                            android:layout_width="24.5dp"
+                            android:layout_height="74dp"
+                            android:layout_marginBottom="1dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:fontFamily="@font/notosanscjkkr_medium"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:inputType="textPersonName"
+                            android:text="?"
+                            android:textAlignment="center"
+                            android:textSize="50sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/view14"
                             app:layout_constraintEnd_toEndOf="@+id/view14"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/carrot_character01" />
+                            app:layout_constraintStart_toStartOf="@+id/view14"
+                            app:layout_constraintTop_toTopOf="@+id/view14" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -571,15 +604,23 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-                    <ImageView
-                            android:id="@+id/imageView15"
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
+                    <EditText
+                            android:id="@+id/editText7"
+                            android:layout_width="24.5dp"
+                            android:layout_height="74dp"
+                            android:layout_marginBottom="1dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:fontFamily="@font/notosanscjkkr_medium"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:inputType="textPersonName"
+                            android:text="?"
+                            android:textAlignment="center"
+                            android:textSize="50sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/view15"
                             app:layout_constraintEnd_toEndOf="@+id/view15"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/carrot_character01" />
+                            app:layout_constraintStart_toStartOf="@+id/view15"
+                            app:layout_constraintTop_toTopOf="@+id/view15" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
