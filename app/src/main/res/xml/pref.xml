@@ -2,13 +2,16 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <SwitchPreference
-            android:defaultValue="false"
-            android:title="퀴즈 잠금화면 사용" android:key="useLockScreen"/>
+            android:defaultValue="true"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:key="useLockScreen"
+            android:summary="정답을 맞췄을 때 효과음이 울립니다. (문구 수정)"
+            android:title="효과음" />
     <MultiSelectListPreference
             android:defaultValue="@array/categorys"
             android:entries="@array/categorys"
             android:entryValues="@array/categorys"
             android:key="category"
-            android:summary="자바, C, 자료구조"
-            android:title="퀴즈 종류(전공)" />
+            android:summary="문제의 범위가 정해집니다. (문구 수정)"
+            android:title="전공 분야" />
 </PreferenceScreen>
