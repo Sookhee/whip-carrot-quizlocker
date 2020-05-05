@@ -12,13 +12,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:includeFontPadding="false"
             android:text="정답횟수 1"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/wrongCountLabel"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/quizLabel" />
 
     <TextView
             android:id="@+id/wrongCountLabel"
@@ -26,33 +28,33 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/notosanscjkkr_regular"
+            android:includeFontPadding="false"
             android:text="오답횟수 3"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/quizLabel"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/correctCountLabel" />
 
     <TextView
             android:id="@+id/quizLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/sbubble"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:fontFamily="@font/notosanscjkkr_medium"
             android:gravity="center|center_horizontal"
+            android:includeFontPadding="false"
             android:text="포르투갈의\n수도는?"
-            android:textSize="32sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/seekBar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.499" />
+            app:layout_constraintVertical_bias="0.3" />
 
     <ImageView
-            android:id="@+id/imageView18"
+            android:id="@+id/leftDirectionImageView"
             android:layout_width="wrap_content"
             android:layout_height="15dp"
             android:layout_marginEnd="56dp"
@@ -62,7 +64,7 @@
             app:srcCompat="@drawable/icon_gray_left" />
 
     <ImageView
-            android:id="@+id/imageView19"
+            android:id="@+id/rightDirectionImageView"
             android:layout_width="wrap_content"
             android:layout_height="15dp"
             android:layout_marginStart="56dp"
@@ -79,6 +81,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/notosanscjkkr_regular"
+            android:includeFontPadding="false"
             android:text="서울"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/leftImageView"
@@ -94,6 +97,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/notosanscjkkr_regular"
+            android:includeFontPadding="false"
             android:text="리스본"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/rightImageView"

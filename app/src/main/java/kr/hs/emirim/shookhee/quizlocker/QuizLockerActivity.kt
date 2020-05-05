@@ -14,6 +14,7 @@ import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.util.Log
+import android.view.View
 import android.view.WindowManager
 import android.widget.SeekBar
 import android.widget.Toast
@@ -89,6 +90,7 @@ class QuizLockerActivity : AppCompatActivity() {
 //                        rightImageView.setImageResource(R.drawable.padlock)
 //                    }
 //                }
+
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
