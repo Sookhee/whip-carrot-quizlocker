@@ -29,6 +29,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(nextIntent)
         }
 
+        goCollection.setOnClickListener {
+            val nextIntent = Intent(this, CollectionActivity::class.java)
+            startActivity(nextIntent)
+        }
+
     }
 
 
