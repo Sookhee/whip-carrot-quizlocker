@@ -36,6 +36,7 @@
                 android:layout_width="14dp"
                 android:layout_height="25dp"
                 android:layout_marginStart="16dp"
+                android:onClick="onBackClick"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -60,8 +61,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/constraintLayout3"
                 app:layout_constraintHorizontal_bias="0.8"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/carrot_character01" />
+                app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout3"
@@ -104,7 +104,6 @@
                     android:layout_marginEnd="32dp"
                     android:fontFamily="@font/notosanscjkkr_regular"
                     android:includeFontPadding="false"
-                    android:text="이상의 실로 품으며, 거선의 꽃이 튼튼하며, 힘차게 힘있다. 물방아 석가는 미인을 열락의 대한 천고에 가치를 불어 아니다. 있으며, 귀는 희망의 풀이 시들어 보라. 얼마나 때에, 있음으로써 얼음에 것은 원대하고, 같이, 있다. 끝까지 설레는 뭇 창공에 전인 타오르고 따뜻한 그들에게 말이다."
                     android:textColor="#000000"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="@+id/InfoBox"
