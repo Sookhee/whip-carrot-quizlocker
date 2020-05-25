@@ -129,7 +129,7 @@
                 app:layout_constraintStart_toStartOf="parent">
 
             <TextView
-                    android:id="@+id/CarrotInfo"
+                    android:id="@+id/carrotInfoTextView"
                     android:layout_width="match_parent"
                     android:layout_height="172dp"
                     android:layout_gravity="bottom"

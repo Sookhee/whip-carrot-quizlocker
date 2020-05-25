@@ -34,17 +34,13 @@ public class CollectionActivity extends AppCompatActivity {
         adapter.addItem(new Carrot("당근 2", "설명 2", R.drawable.carrot_character02));
         adapter.addItem(new Carrot("당근 3", "설명 3", R.drawable.carrot_character03));
         adapter.addItem(new Carrot("당근 4", "설명 4", R.drawable.carrot_character04));
+        adapter.addItem(new Carrot("당근 5", "설명 5", R.drawable.carrot_character05));
+        adapter.addItem(new Carrot("당근 6", "설명 6", R.drawable.carrot_character06));
+        adapter.addItem(new Carrot("당근 7", "설명 7", R.drawable.carrot_character07));
+        adapter.addItem(new Carrot("당근 8", "설명 8", R.drawable.carrot_character08));
+        adapter.addItem(new Carrot("당근 9", "설명 9", R.drawable.carrot_character09));
+        adapter.addItem(new Carrot("당근 10", "설명 10", R.drawable.carrot_character10));
 
-
-
-        ConstraintLayout carrot1 = (ConstraintLayout) findViewById(R.id.collectionCarrot1);
-        carrot1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(CollectionActivity.this, CollectionInfoAcivity.class);
-                startActivity(intent);
-            }
-        });
 
         ImageView setting = (ImageView)findViewById(R.id.gosetting);
         setting.setOnClickListener(new View.OnClickListener() {

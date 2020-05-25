@@ -52,7 +52,7 @@
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
         <ImageView
-                android:id="@+id/imageView17"
+                android:id="@+id/carrotImageView"
                 android:layout_width="match_parent"
                 android:layout_height="280dp"
                 android:layout_margin="40dp"
@@ -72,7 +72,7 @@
                 app:layout_constraintStart_toStartOf="parent">
 
             <Button
-                    android:id="@+id/Name_Box"
+                    android:id="@+id/carrotNameButton"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:background="@drawable/carrot_namebox"
@@ -91,12 +91,12 @@
                     android:layout_marginBottom="4dp"
                     android:background="#F1F1F1"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/CarrotInfo"
+                    app:layout_constraintEnd_toEndOf="@+id/carrotInfoTextView"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                    android:id="@+id/CarrotInfo"
+                    android:id="@+id/carrotInfoTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
