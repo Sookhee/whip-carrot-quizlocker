@@ -29,6 +29,16 @@ class MainActivity : AppCompatActivity() {
             startActivity(nextIntent)
         }
 
+        goCollection.setOnClickListener {
+            val nextIntent = Intent(this, CollectionActivity::class.java)
+            startActivity(nextIntent)
+        }
+
+        goChatting.setOnClickListener{
+            val nextIntent = Intent(this, ChatLogin::class.java)
+            startActivity(nextIntent)
+        }
+
     }
 
 
