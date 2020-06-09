@@ -15,122 +15,103 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-                android:id="@+id/goback2"
-                android:layout_width="19dp"
-                android:layout_height="36dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/collection_bartext"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/icon_white_left" />
-
-        <EditText
+        <TextView
                 android:id="@+id/collection_bartext"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:ems="10"
                 android:fontFamily="@font/notosanscjkkr_medium"
+                android:includeFontPadding="false"
                 android:inputType="textPersonName"
                 android:text="당근 도감"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/gosetting"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-                android:id="@+id/gosetting"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginEnd="16dp"
+                android:id="@+id/goback2"
+                android:layout_width="14dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="16dp"
+                android:onClick="onBackClick"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/settings" />
+                app:srcCompat="@drawable/icon_white_left" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <FrameLayout
-            android:id="@+id/preferenceContent"
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </FrameLayout>
-
-    <LinearLayout
-            android:layout_width="400dp"
-            android:layout_height="665dp"
-            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
         <ImageView
-                android:id="@+id/imageView17"
+                android:id="@+id/carrotImageView"
                 android:layout_width="match_parent"
-                android:layout_height="308dp"
-                android:layout_marginLeft="33.5dp"
-                android:layout_marginTop="41dp"
-                android:layout_marginRight="33.5dp"
-                android:layout_marginBottom="39dp"
-                app:srcCompat="@drawable/carrot_character01" />
+                android:layout_height="280dp"
+                android:layout_margin="40dp"
+                app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
+                app:layout_constraintEnd_toEndOf="@+id/constraintLayout3"
+                app:layout_constraintHorizontal_bias="0.8"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <FrameLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout3"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                    android:id="@+id/carrotNameButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@drawable/carrot_namebox"
+                    android:text="기본 당근"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    app:layout_constraintBottom_toTopOf="@+id/InfoBox"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/InfoBox" />
 
             <View
                     android:id="@+id/InfoBox"
                     android:layout_width="match_parent"
-                    android:layout_height="256dp"
+                    android:layout_height="250dp"
                     android:layout_gravity="bottom"
-                    android:background="#F1F1F1" />
+                    android:layout_marginBottom="4dp"
+                    android:background="#F1F1F1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/carrotInfoTextView"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                    android:id="@+id/CarrotInfo"
+                    android:id="@+id/carrotInfoTextView"
                     android:layout_width="match_parent"
-                    android:layout_height="172dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginRight="40dp"
-                    android:layout_marginBottom="45dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
                     android:fontFamily="@font/notosanscjkkr_regular"
-                    android:text="이상의 실로 품으며, 거선의 꽃이 튼튼하며, 힘차게 힘있다. 물방아 석가는 미인을 열락의 대한 천고에 가치를 불어 아니다. 있으며, 귀는 희망의 풀이 시들어 보라. 얼마나 때에, 있음으로써 얼음에 것은 원대하고, 같이, 있다. 끝까지 설레는 뭇 창공에 전인 타오르고 따뜻한 그들에게 말이다."
+                    android:includeFontPadding="false"
                     android:textColor="#000000"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/InfoBox"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/InfoBox" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <View
-                    android:id="@+id/Name_Box"
-                    android:layout_width="90dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/carrot_namebox"
-                    android:textAlignment="center" />
-
-            <TextView
-                    android:id="@+id/Carrot_Name"
-                    android:layout_width="90dp"
-                    android:layout_height="40dp"
-                    android:fontFamily="@font/notosanscjkkr_medium"
-                    android:gravity="center"
-                    android:text="기본 당근"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="15sp" />
-        </FrameLayout>
-
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
