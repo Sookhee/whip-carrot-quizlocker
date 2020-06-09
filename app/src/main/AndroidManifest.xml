@@ -39,6 +39,10 @@
                 android:enabled="true"
                 android:exported="true" />
 
+        <activity android:name=".ChatMain"/>
+        <activity android:name=".ChatLogin"/>
+        <activity android:name=".ChatActivity"/>
+
         <activity android:name=".ScreenOffExActivity" />
         <activity android:name=".PrefFragmentActivity" />
         <activity android:name=".PrefExActivity" />

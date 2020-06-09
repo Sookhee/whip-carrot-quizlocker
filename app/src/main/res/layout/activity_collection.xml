@@ -29,16 +29,15 @@
 
         <ImageView
                 android:id="@+id/goback"
-                android:layout_width="14dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="16dp"
-                android:onClick="goback"
+                android:layout_width="19dp"
+                android:layout_height="36dp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/collection_bartext"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/icon_white_left" />
 
-        <EditText
+        <TextView
                 android:id="@+id/collection_bartext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -51,20 +50,21 @@
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/gosetting"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
                 android:id="@+id/gosetting"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/settings" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/collection_recycler"
@@ -75,5 +75,4 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
