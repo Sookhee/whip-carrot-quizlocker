@@ -29,11 +29,10 @@
 
         <ImageView
                 android:id="@+id/goback"
-                android:layout_width="14dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="16dp"
-                android:onClick="goback"
+                android:layout_width="19dp"
+                android:layout_height="36dp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/collection_bartext"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/icon_white_left" />
@@ -51,14 +50,14 @@
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/gosetting"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
                 android:id="@+id/gosetting"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -67,10 +66,12 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
-            android:id="@+id/scrollView2"
             android:layout_width="409dp"
             android:layout_height="669dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
@@ -79,12 +80,566 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-            <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/collection_recycler"
+            <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginBottom="16dp" />
+                    android:layout_height="105dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="15dp"
+                    android:orientation="horizontal">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="105dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#006F6F6F"
+                        android:onClick="onCollectionInfoBtn"
+                        android:padding="15dp">
+
+                    <View
+                            android:id="@+id/view1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_rounded"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                    <ImageView
+                            android:id="@+id/imageView1"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/view1"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/carrot_character01" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="105dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#006F6F6F"
+                        android:onClick="onCollectionInfoBtn"
+                        android:padding="15dp">
+
+                    <View
+                            android:id="@+id/view2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_rounded"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                            android:id="@+id/imageView2"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/view2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/carrot_character02" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="105dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="18dp"
+                        android:background="#006F6F6F"
+                        android:onClick="onCollectionInfoBtn"
+                        android:padding="15dp">
+
+                    <View
+                            android:id="@+id/view3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_rounded"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                            android:id="@+id/imageView3"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/view3"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/carrot_character03" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="105dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:orientation="horizontal">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="105dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#006F6F6F"
+                        android:onClick="onCollectionInfoBtn"
+                        android:padding="15dp">
+
+                    <View
+                            android:id="@+id/view4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_rounded"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                    <ImageView
+                            android:id="@+id/imageView4"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/view4"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/carrot_character04" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="105dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#006F6F6F"
+                        android:onClick="onCollectionInfoBtn"
+                        android:padding="15dp">
+
+                    <View
+                            android:id="@+id/view5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_rounded"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                            android:id="@+id/imageView5"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/view5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/carrot_character05" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="105dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="18dp"
+                        android:background="#006F6F6F"
+                        android:onClick="onCollectionInfoBtn"
+                        android:padding="15dp">
+
+                    <View
+                            android:id="@+id/view6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_rounded"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                            android:id="@+id/imageView6"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/view6"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/carrot_character06" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="105dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:orientation="horizontal">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="105dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#006F6F6F"
+                        android:onClick="onCollectionInfoBtn"
+                        android:padding="15dp">
+
+                    <View
+                            android:id="@+id/view7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_rounded"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                    <ImageView
+                            android:id="@+id/imageView7"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/view7"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/carrot_character07" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="105dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#006F6F6F"
+                        android:onClick="onCollectionInfoBtn"
+                        android:padding="15dp">
+
+                    <View
+                            android:id="@+id/view8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_rounded"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                            android:id="@+id/imageView8"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/view8"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/carrot_character08" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="105dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="18dp"
+                        android:background="#006F6F6F"
+                        android:onClick="onCollectionInfoBtn"
+                        android:padding="15dp">
+
+                    <View
+                            android:id="@+id/view9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_rounded"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                            android:id="@+id/imageView9"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/view9"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/carrot_character09" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="105dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:orientation="horizontal">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="105dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#006F6F6F"
+                        android:onClick="onCollectionInfoBtn"
+                        android:padding="15dp">
+
+                    <View
+                            android:id="@+id/view10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_rounded"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                    <ImageView
+                            android:id="@+id/imageView10"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/view10"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/carrot_character10" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="105dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#006F6F6F"
+                        android:onClick="onCollectionInfoBtn"
+                        android:padding="15dp">
+
+                    <View
+                            android:id="@+id/view11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_rounded"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                            android:id="@+id/editText"
+                            android:layout_width="24.5dp"
+                            android:layout_height="74dp"
+                            android:layout_marginBottom="1dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:fontFamily="@font/notosanscjkkr_medium"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:inputType="textPersonName"
+                            android:text="?"
+                            android:textAlignment="center"
+                            android:textSize="50sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/view11"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/view11"
+                            app:layout_constraintTop_toTopOf="@+id/view11" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="105dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="18dp"
+                        android:background="#006F6F6F"
+                        android:onClick="onCollectionInfoBtn"
+                        android:padding="15dp">
+
+                    <View
+                            android:id="@+id/view12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_rounded"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                            android:id="@+id/editText2"
+                            android:layout_width="24.5dp"
+                            android:layout_height="74dp"
+                            android:layout_marginBottom="1dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:fontFamily="@font/notosanscjkkr_medium"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:inputType="textPersonName"
+                            android:text="?"
+                            android:textAlignment="center"
+                            android:textSize="50sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/view12"
+                            app:layout_constraintEnd_toEndOf="@+id/view12"
+                            app:layout_constraintStart_toStartOf="@+id/view12"
+                            app:layout_constraintTop_toTopOf="@+id/view12" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="105dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="30dp"
+                    android:orientation="horizontal">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="105dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#006F6F6F"
+                        android:onClick="onCollectionInfoBtn"
+                        android:padding="15dp">
+
+                    <View
+                            android:id="@+id/view13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_rounded"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                    <EditText
+                            android:id="@+id/editText4"
+                            android:layout_width="24.5dp"
+                            android:layout_height="74dp"
+                            android:layout_marginBottom="1dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:fontFamily="@font/notosanscjkkr_medium"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:inputType="textPersonName"
+                            android:text="?"
+                            android:textAlignment="center"
+                            android:textSize="50sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/view13"
+                            app:layout_constraintEnd_toEndOf="@+id/view13"
+                            app:layout_constraintStart_toStartOf="@+id/view13"
+                            app:layout_constraintTop_toTopOf="@+id/view13" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="105dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#006F6F6F"
+                        android:onClick="onCollectionInfoBtn"
+                        android:padding="15dp">
+
+                    <View
+                            android:id="@+id/view14"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_rounded"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                            android:id="@+id/editText6"
+                            android:layout_width="24.5dp"
+                            android:layout_height="74dp"
+                            android:layout_marginBottom="1dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:fontFamily="@font/notosanscjkkr_medium"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:inputType="textPersonName"
+                            android:text="?"
+                            android:textAlignment="center"
+                            android:textSize="50sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/view14"
+                            app:layout_constraintEnd_toEndOf="@+id/view14"
+                            app:layout_constraintStart_toStartOf="@+id/view14"
+                            app:layout_constraintTop_toTopOf="@+id/view14" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="105dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="18dp"
+                        android:background="#006F6F6F"
+                        android:onClick="onCollectionInfoBtn"
+                        android:padding="15dp">
+
+                    <View
+                            android:id="@+id/view15"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_rounded"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                            android:id="@+id/editText7"
+                            android:layout_width="24.5dp"
+                            android:layout_height="74dp"
+                            android:layout_marginBottom="1dp"
+                            android:background="@null"
+                            android:ems="10"
+                            android:fontFamily="@font/notosanscjkkr_medium"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:inputType="textPersonName"
+                            android:text="?"
+                            android:textAlignment="center"
+                            android:textSize="50sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/view15"
+                            app:layout_constraintEnd_toEndOf="@+id/view15"
+                            app:layout_constraintStart_toStartOf="@+id/view15"
+                            app:layout_constraintTop_toTopOf="@+id/view15" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
