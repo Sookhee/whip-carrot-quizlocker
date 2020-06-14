@@ -15,12 +15,21 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity {
 
+    String email, passwd, passwdRe, nickName;
+    // Firebase
     FirebaseAuth firebaseAuth;
+    FirebaseDatabase FirebaseDatabase;
+//    DatabaseReference userDatabaseReference = FirebaseDatabase.getInstance().getReference().child("user");
+    DatabaseReference user = FirebaseDatabase.getInstance().getReference().child("user");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +48,10 @@ public class RegisterActivity extends AppCompatActivity {
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = etEmail.getText().toString();
-                String passwd = etPasswd.getText().toString().trim();
-                String passwdRe = etPasswdRe.getText().toString().trim();
-                String nickName = etNickName.getText().toString().trim();
+                email = etEmail.getText().toString();
+                passwd = etPasswd.getText().toString().trim();
+                passwdRe = etPasswdRe.getText().toString().trim();
+                nickName = etNickName.getText().toString().trim();
 
                 if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                     Toast.makeText(getApplicationContext(), "올바른 이메일 형식이 아닙니다", Toast.LENGTH_SHORT).show();
@@ -56,7 +65,16 @@ public class RegisterActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
 
                                     if (task.isSuccessful()) {
-                                        
+
+                                        int idx = email.indexOf("@");
+                                        String emailFront = email.substring(0, '@');
+
+                                        Map<String, Object> userRegisterMap = new HashMap<String, Object>();
+                                        userRegisterMap.put("nickname", nickName);
+                                        userRegisterMap.put("emailFront", emailFront);
+                                        userRegisterMap.put("email", email);
+                                        userRegisterMap.put("carrotCount", 0);
+//                                        userDatabaseReference.child(emailFront).updateChildren(userRegisterMap);
                                         finish();
                                     } else {
                                         Toast.makeText(RegisterActivity.this, "이미 가입된 메일입니다", Toast.LENGTH_SHORT).show();

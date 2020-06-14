@@ -19,11 +19,7 @@
             android:theme="@style/AppTheme">
         <activity android:name=".PopupCollectionActivity"></activity>
         <activity android:name=".LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".RegisterActivity"></activity>
         <activity android:name=".CollectionInfoAcivity" />
@@ -52,7 +48,11 @@
         <activity android:name=".PrefExActivity" />
         <activity android:name=".FileExActivity" />
         <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <receiver
