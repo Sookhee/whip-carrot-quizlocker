@@ -2,10 +2,12 @@ package kr.hs.emirim.shookhee.quizlocker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 public class PopupCollectionActivity extends AppCompatActivity {
 
@@ -16,6 +18,12 @@ public class PopupCollectionActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_popup_collection);
+
+        TextView answerNum = findViewById(R.id.answerNum);
+        Intent secondIntent = getIntent();
+        String message = secondIntent.getStringExtra("메시지");
+
+        answerNum.setText(message);
     }
 
     @Override

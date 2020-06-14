@@ -20,7 +20,6 @@
         <activity
                 android:name=".PopupCollectionActivity"
                 android:theme="@style/popupTheme"/>
-        <activity android:name=".PopupCollectionActivity"></activity>
         <activity android:name=".LoginActivity">
 
         </activity>

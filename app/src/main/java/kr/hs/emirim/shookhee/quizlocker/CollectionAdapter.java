@@ -21,7 +21,7 @@ import java.util.HashMap;
 public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.ItemViewHolder> {
 
     private ArrayList<Carrot> listData = new ArrayList<>();
-    int carrotCnt = 15;
+    int carrotCnt = 15; // 사용자 당근 갯수
     int carrots = 0;
     int show = 2131230826;
 
@@ -75,6 +75,7 @@ public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.It
                     }
                     else {
                         Intent intent = new Intent(v.getContext(), PopupCollectionActivity.class);
+                        intent.putExtra("메시지", "정답 "+(img-2131230826+1)*5+"개 이상.");
                         v.getContext().startActivity(intent);
                     }
                 }
