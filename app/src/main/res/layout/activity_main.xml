@@ -19,7 +19,7 @@
     </FrameLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout"
+            android:id="@+id/top-nav"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:background="@color/colorPrimary"
@@ -36,7 +36,7 @@
                 android:text="채찍채찍 당근"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
-                android:textSize="24sp"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -53,119 +53,142 @@
                 app:srcCompat="@drawable/icon_setting" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="1dp"
-            android:layout_marginEnd="1dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-            app:layout_constraintVertical_bias="1.0">
+            app:layout_constraintTop_toBottomOf="@+id/top-nav">
 
-        <ImageView
-                android:id="@+id/imageView12"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/carrot" />
-
-        <TextView
-                android:id="@+id/textView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00개"
-                android:textAlignment="center"
-                android:textColor="#000000"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView12"
-                app:layout_constraintStart_toEndOf="@+id/imageView12"
-                app:layout_constraintTop_toTopOf="@+id/imageView12" />
-
-        <Button
-                android:id="@+id/goCollection"
-                android:layout_width="90dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:background="@color/colorPrimary"
-                android:fontFamily="@font/notosanscjkkr_regular"
-                android:text="도감 보기"
-                android:textColor="#FFFFFF"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-                android:id="@+id/goChatting"
-                android:layout_width="90dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:background="@color/colorPrimary"
-                android:fontFamily="@font/notosanscjkkr_regular"
-                android:text="채팅방 ㄱ"
-                android:textColor="#FFFFFF"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/goCollection" />
-
-        <ImageView
-                android:id="@+id/carrotImage"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="64dp"
-                android:layout_marginEnd="64dp"
-                app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.49"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/carrot_character01" />
-
-        <ImageView
-                android:id="@+id/carrotStageImage"
-                android:layout_width="220dp"
-                android:layout_height="60dp"
-                app:srcCompat="@drawable/carrot_stage"
-                tools:layout_editor_absoluteX="95dp"
-                tools:layout_editor_absoluteY="420dp" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout2"
+        <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/bg_rounded"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                android:orientation="vertical">
 
-            <TextView
-                    android:id="@+id/carrotInfoTextView"
+            <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:fontFamily="@font/notosanscjkkr_regular"
-                    android:includeFontPadding="false"
-                    android:text="이상의 실로 품으며, 거선의 꽃이 튼튼하며, 힘차게 힘있다. 물방아 석가는 미인을 열락의 대한 천고에 가치를 불어 아니다. 있으며, 귀는 희망의 풀이 시들어 보라. 얼마나 때에, 있음으로써 얼음에 것은 원대하고, 같이, 있다. 끝까지 설레는 뭇 창공에 전인 타오르고 따뜻한 그들에게 말이다."
-                    android:textColor="#000000"
-                    android:textSize="12sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                    android:layout_height="wrap_content">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                        android:id="@+id/carrotCountImageView"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/goChatting"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/goChatting"
+                        app:srcCompat="@drawable/carrot" />
+
+                <TextView
+                        android:id="@+id/carrotCountTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/notosanscjkkr_regular"
+                        android:includeFontPadding="false"
+                        android:text="00 개"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintBottom_toBottomOf="@+id/carrotCountImageView"
+                        app:layout_constraintStart_toEndOf="@+id/carrotCountImageView"
+                        app:layout_constraintTop_toTopOf="@+id/carrotCountImageView" />
+
+                <Button
+                        android:id="@+id/goChatting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@color/orange"
+                        android:fontFamily="@font/notosanscjkkr_regular"
+                        android:includeFontPadding="false"
+                        android:text="랜덤 채팅"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                        android:id="@+id/goCollection"
+                        android:layout_width="240dp"
+                        android:layout_height="210dp"
+                        android:layout_marginTop="32dp"
+                        android:gravity="bottom"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/goChatting">
+
+                    <ImageView
+                            android:id="@+id/userProfileCarrotImage"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/carrot_character01" />
+
+                    <TextView
+                            android:id="@+id/userName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanscjkkr_medium"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:text="TextView"
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:fontFamily="@font/notosanscjkkr_bold"
+                        android:includeFontPadding="false"
+                        android:text="랭킹"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rankingRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp" >
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+                <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/notosanscjkkr_medium"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:text=".\n.\n."
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                <Button
+                        android:id="@+id/showMoreRankingButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@color/orange"
+                        android:fontFamily="@font/notosanscjkkr_medium"
+                        android:includeFontPadding="false"
+                        android:text="랭킹 더보기"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
