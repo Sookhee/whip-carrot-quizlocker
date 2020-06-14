@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         goChatting.setOnClickListener{
-            val nextIntent = Intent(this, ChatLogin::class.java)
+            val nextIntent = Intent(this, ChatActivity::class.java)
             startActivity(nextIntent)
         }
 
