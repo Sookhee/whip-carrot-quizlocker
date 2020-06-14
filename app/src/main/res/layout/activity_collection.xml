@@ -29,6 +29,10 @@
 
         <ImageView
                 android:id="@+id/goback"
+                android:layout_width="14dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="16dp"
+                android:onClick="goback"
                 android:layout_width="19dp"
                 android:layout_height="36dp"
                 android:layout_marginStart="16dp"
@@ -49,20 +53,43 @@
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/gosetting"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
                 android:id="@+id/gosetting"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/settings" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="409dp"
+            android:layout_height="669dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/collection_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginBottom="16dp" />
+
+        </LinearLayout>
+    </ScrollView>
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -74,4 +101,5 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/top-nav" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

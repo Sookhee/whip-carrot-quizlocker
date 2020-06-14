@@ -6,16 +6,19 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ImageView;
+import java.util.ArrayList;
+import android.view.WindowManager;
 
 public class CollectionActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     GridLayoutManager mLayoutManager;
     CollectionAdapter adapter;
+  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +41,6 @@ public class CollectionActivity extends AppCompatActivity {
         adapter.addItem(new Carrot("당근 9", "설명 9", R.drawable.carrot_character09));
         adapter.addItem(new Carrot("당근 10", "설명 10", R.drawable.carrot_character10));
 
-
         ImageView setting = (ImageView)findViewById(R.id.gosetting);
         setting.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +50,8 @@ public class CollectionActivity extends AppCompatActivity {
             }
         });
     }
+
+
     public void goback(View v){
         super.onBackPressed();
     }

@@ -2,6 +2,7 @@ package kr.hs.emirim.shookhee.quizlocker;
 
 import android.content.Context;
 import android.content.Intent;
+import android.nfc.Tag;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +14,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,6 +21,9 @@ import java.util.HashMap;
 public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.ItemViewHolder> {
 
     private ArrayList<Carrot> listData = new ArrayList<>();
+    int carrotCnt = 15;
+    int carrots = 0;
+    int show = 2131230826;
 
     @NonNull
     @Override
@@ -35,6 +38,7 @@ public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.It
 
         Carrot carrot = listData.get(position);
 
+        // 정보 전달.
         holder.name = carrot.getName();
         holder.info = carrot.getInfo();
         holder.img = carrot.getImgId();
@@ -62,17 +66,29 @@ public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.It
             ivCarrotImg.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(), CollectionInfoAcivity.class);
-                    intent.putExtra("name", name);
-                    intent.putExtra("info", info);
-                    intent.putExtra("img", img);
-                    v.getContext().startActivity(intent);
+                    if(img < show) {
+                        Intent intent = new Intent(v.getContext(), CollectionInfoAcivity.class);
+                        intent.putExtra("name", name);
+                        intent.putExtra("info", info);
+                        intent.putExtra("img", img);
+                        v.getContext().startActivity(intent);
+                    }
+                    else {
+                        Intent intent = new Intent(v.getContext(), PopupCollectionActivity.class);
+                        v.getContext().startActivity(intent);
+                    }
                 }
             });
         }
 
         void onBind(Carrot data) {
-            ivCarrotImg.setImageResource(data.getImgId());
+            if((++carrots) * 5 <= carrotCnt) {
+                ivCarrotImg.setImageResource(data.getImgId());
+                show++;
+            }
+            else {
+                ivCarrotImg.setImageResource(R.drawable.questionmark);
+            }
         }
     }
 }
