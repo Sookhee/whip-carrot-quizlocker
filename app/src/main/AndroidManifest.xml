@@ -20,6 +20,11 @@
         <activity
                 android:name=".PopupCollectionActivity"
                 android:theme="@style/popupTheme"/>
+        <activity android:name=".PopupCollectionActivity"></activity>
+        <activity android:name=".LoginActivity">
+
+        </activity>
+        <activity android:name=".RegisterActivity"></activity>
         <activity android:name=".CollectionInfoAcivity" />
         <activity android:name=".CollectionActivity" /> <!-- <activity android:name=".BackgroundActivity" /> -->
         <activity
@@ -40,10 +45,6 @@
                 android:name=".LockScreenService"
                 android:enabled="true"
                 android:exported="true" />
-
-        <activity android:name=".ChatMain"/>
-        <activity android:name=".ChatLogin"/>
-        <activity android:name=".ChatActivity"/>
 
         <activity android:name=".ScreenOffExActivity" />
         <activity android:name=".PrefFragmentActivity" />

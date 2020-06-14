@@ -11,19 +11,18 @@ import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-
 import java.util.ArrayList;
+import android.view.WindowManager;
 
 public class CollectionActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     GridLayoutManager mLayoutManager;
     CollectionAdapter adapter;
-
+  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collection);
-
         recyclerView = (RecyclerView)findViewById(R.id.collection_recycler);
         adapter = new CollectionAdapter();
         mLayoutManager = new GridLayoutManager(this, 3);
@@ -31,7 +30,6 @@ public class CollectionActivity extends AppCompatActivity {
 //        mLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(adapter);
-
         adapter.addItem(new Carrot("당근 1", "설명 1", R.drawable.carrot_character01));
         adapter.addItem(new Carrot("당근 2", "설명 2", R.drawable.carrot_character02));
         adapter.addItem(new Carrot("당근 3", "설명 3", R.drawable.carrot_character03));
@@ -43,7 +41,6 @@ public class CollectionActivity extends AppCompatActivity {
         adapter.addItem(new Carrot("당근 9", "설명 9", R.drawable.carrot_character09));
         adapter.addItem(new Carrot("당근 10", "설명 10", R.drawable.carrot_character10));
 
-
         ImageView setting = (ImageView)findViewById(R.id.gosetting);
         setting.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +50,7 @@ public class CollectionActivity extends AppCompatActivity {
             }
         });
     }
+
 
     public void goback(View v){
         super.onBackPressed();

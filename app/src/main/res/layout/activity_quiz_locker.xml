@@ -4,7 +4,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/white"
+        android:background="#FFFFFF"
         tools:context=".QuizLockerActivity">
 
     <TextView
@@ -17,7 +17,7 @@
             android:fontFamily="@font/notosanscjkkr_regular"
             android:includeFontPadding="false"
             android:text="정답횟수 1"
-            android:textSize="18sp"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/quizLabel" />
@@ -27,37 +27,38 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/notosanscjkkr_regular"
             android:includeFontPadding="false"
             android:text="오답횟수 3"
-            android:textSize="18sp"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/correctCountLabel" />
 
     <TextView
             android:id="@+id/quizLabel"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
             android:fontFamily="@font/notosanscjkkr_medium"
             android:gravity="center|center_horizontal"
             android:includeFontPadding="false"
             android:text="포르투갈의\n수도는?"
-            android:textSize="30sp"
+            android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/seekBar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.3" />
+            app:layout_constraintVertical_bias="0.32" />
 
     <ImageView
             android:id="@+id/leftDirectionImageView"
             android:layout_width="wrap_content"
             android:layout_height="15dp"
-            android:layout_marginEnd="56dp"
+            android:layout_marginEnd="40dp"
             app:layout_constraintBottom_toBottomOf="@+id/seekBar"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintTop_toTopOf="@+id/seekBar"
@@ -67,7 +68,7 @@
             android:id="@+id/rightDirectionImageView"
             android:layout_width="wrap_content"
             android:layout_height="15dp"
-            android:layout_marginStart="56dp"
+            android:layout_marginStart="40dp"
             app:layout_constraintBottom_toBottomOf="@+id/seekBar"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toTopOf="@+id/seekBar"
@@ -107,7 +108,7 @@
     <ImageView
             android:id="@+id/leftImageView"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="32dp"
             android:layout_marginStart="32dp"
             android:adjustViewBounds="true"
             app:layout_constraintBottom_toBottomOf="@+id/seekBar"
@@ -118,7 +119,7 @@
     <ImageView
             android:id="@+id/rightImageView"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="32dp"
             android:layout_marginEnd="32dp"
             android:adjustViewBounds="true"
             app:layout_constraintBottom_toBottomOf="@+id/seekBar"
