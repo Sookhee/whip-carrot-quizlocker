@@ -14,7 +14,7 @@
             android:includeFontPadding="false"
             android:text="에 오신 것을 "
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/textView4"
             app:layout_constraintStart_toEndOf="@+id/textView4"
             app:layout_constraintTop_toTopOf="@+id/textView4" />
@@ -23,13 +23,13 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/notosanscjkkr_medium"
             android:includeFontPadding="false"
             android:text="채채당"
             android:textColor="@color/orange"
-            android:textSize="24sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,7 +42,7 @@
             android:includeFontPadding="false"
             android:text="환영합니다!"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/textView4"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -120,7 +120,7 @@
             android:includeFontPadding="false"
             android:text="회원가입하러 가기"
             android:textColor="@color/orange"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
@@ -133,7 +133,7 @@
             android:includeFontPadding="false"
             android:text="아직 채채당 회원이 아니신가요?"
             android:textColor="@color/black"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/goRegister"
             app:layout_constraintEnd_toStartOf="@+id/goRegister"
             app:layout_constraintTop_toTopOf="@+id/goRegister"

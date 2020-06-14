@@ -56,8 +56,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
 
                                     if (task.isSuccessful()) {
-                                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                                        startActivity(intent);
+                                        
                                         finish();
                                     } else {
                                         Toast.makeText(RegisterActivity.this, "이미 가입된 메일입니다", Toast.LENGTH_SHORT).show();
@@ -72,8 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
         goLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(RegisterActivity.this, LoginActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
 

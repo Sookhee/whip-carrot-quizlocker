@@ -3,10 +3,12 @@ package kr.hs.emirim.shookhee.quizlocker;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
 
         firebaseAuth = firebaseAuth.getInstance();
 
+        TextView tvGoRegister = (TextView)findViewById(R.id.goRegister);
         final EditText etEmail = (EditText)findViewById(R.id.emailEditText);
         final EditText etPasswd = (EditText)findViewById(R.id.passwdEditText);
         Button btnLogin = (Button)findViewById(R.id.loginButton);
@@ -49,14 +52,23 @@ public class LoginActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
-//                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-//                                    startActivity(intent);
+                                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                        startActivity(intent);
                                     } else {
                                         Toast.makeText(getApplicationContext(), "가입되지 않은 계정입니다", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });
+
                 }
+            }
+        });
+
+        tvGoRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
             }
         });
     }
