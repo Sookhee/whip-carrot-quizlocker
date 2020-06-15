@@ -42,9 +42,7 @@ public class ChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        myRef = database.getReference();
-        myRef.setValue("Hello, World!");
+
 
         Button_send = findViewById(R.id.Button_send);
         EditText_chat = findViewById(R.id.EditText_chat);
@@ -77,7 +75,9 @@ public class ChatActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
 
         // Write a message to the database
-
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        myRef = database.getReference();
+        //myRef.setValue("Hello, World!");
 
         //caution!!!
 
