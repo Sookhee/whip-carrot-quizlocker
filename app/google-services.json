@@ -1,34 +1,71 @@
 {
   "project_info": {
-    "project_number": "932868201400",
-    "firebase_url": "https://whipe-carrot.firebaseio.com",
-    "project_id": "whipe-carrot",
-    "storage_bucket": "whipe-carrot.appspot.com"
+    "project_number": "322266250329",
+    "firebase_url": "https://chat-dd27e.firebaseio.com",
+    "project_id": "chat-dd27e",
+    "storage_bucket": "chat-dd27e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:932868201400:android:88ee4d36016fa762584d4d",
+        "mobilesdk_app_id": "1:322266250329:android:8387e40259cceb97414548",
         "android_client_info": {
           "package_name": "kr.hs.emirim.shookhee.quizlocker"
         }
       },
       "oauth_client": [
         {
-          "client_id": "932868201400-43olkggsv1gj2jj1892dea90fanlhvnu.apps.googleusercontent.com",
+          "client_id": "322266250329-q0uumrnlunnv2vr17bd26erpa0okrb09.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kr.hs.emirim.shookhee.quizlocker",
+            "certificate_hash": "f2831f97fe4a0c5bfb19428d518e6b48f45fdc7f"
+          }
+        },
+        {
+          "client_id": "322266250329-o659lbs9ghhe304qt369mhtp2k7p2csr.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAR-1f2dtjvYjuNrAl0jNjhxPAGoYN6ovA"
+          "current_key": "AIzaSyAYJYr9Sjgi8PY0I5n8Pj8qEzKVkr1xDNk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "932868201400-43olkggsv1gj2jj1892dea90fanlhvnu.apps.googleusercontent.com",
+              "client_id": "322266250329-o659lbs9ghhe304qt369mhtp2k7p2csr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:322266250329:android:fea51f6e9350b76d414548",
+        "android_client_info": {
+          "package_name": "kr.hs.emirim.sugyeong.chatting"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "322266250329-o659lbs9ghhe304qt369mhtp2k7p2csr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYJYr9Sjgi8PY0I5n8Pj8qEzKVkr1xDNk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "322266250329-o659lbs9ghhe304qt369mhtp2k7p2csr.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

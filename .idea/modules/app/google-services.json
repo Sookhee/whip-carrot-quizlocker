@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "332825872011",
+    "firebase_url": "https://whip-carrot-quizlocker.firebaseio.com",
+    "project_id": "whip-carrot-quizlocker",
+    "storage_bucket": "whip-carrot-quizlocker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:332825872011:android:67aec0c9bc6144acbdf68e",
+        "android_client_info": {
+          "package_name": "kr.hs.emirim.shookhee.quizlocker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "332825872011-f647egbn3lum7q813bltiqkmhue0hfi8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kr.hs.emirim.shookhee.quizlocker",
+            "certificate_hash": "f2831f97fe4a0c5bfb19428d518e6b48f45fdc7f"
+          }
+        },
+        {
+          "client_id": "332825872011-vprcumjrj4e2q002iekr6jlja11jegn9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCc3lTy9mzkgaYLI1DUYefloYGjGyq35Kc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "332825872011-vprcumjrj4e2q002iekr6jlja11jegn9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
