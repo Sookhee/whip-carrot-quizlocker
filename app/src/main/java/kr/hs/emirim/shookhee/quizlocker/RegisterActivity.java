@@ -74,7 +74,8 @@ public class RegisterActivity extends AppCompatActivity {
                                         userRegisterMap.put("emailFront", emailFront);
                                         userRegisterMap.put("email", email);
                                         userRegisterMap.put("carrotCount", 0);
-//                                        userDatabaseReference.child(emailFront).updateChildren(userRegisterMap);
+
+                                        user.child(emailFront).updateChildren(userRegisterMap);
                                         finish();
                                     } else {
                                         Toast.makeText(RegisterActivity.this, "이미 가입된 메일입니다", Toast.LENGTH_SHORT).show();
