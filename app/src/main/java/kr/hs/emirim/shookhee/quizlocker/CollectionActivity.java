@@ -38,10 +38,10 @@ public class CollectionActivity extends AppCompatActivity {
         adapter.addItem(new Carrot("당근 9", "설명 9", R.drawable.carrot_character09, 80));
         adapter.addItem(new Carrot("당근 10", "설명 10", R.drawable.carrot_character10, 90));
         adapter.addItem(new Carrot("당근 10", "설명 10", R.drawable.carrot_character10, 200));
-        adapter.addItem(new Carrot("당근 10", "설명 10", R.drawable.carrot_character10, 200));
-        adapter.addItem(new Carrot("당근 10", "설명 10", R.drawable.carrot_character10, 200));
-        adapter.addItem(new Carrot("당근 10", "설명 10", R.drawable.carrot_character10, 200));
-        adapter.addItem(new Carrot("당근 10", "설명 10", R.drawable.carrot_character10, 200));
+        adapter.addItem(new Carrot("당근 10", "설명 10", R.drawable.carrot_character10, 210));
+        adapter.addItem(new Carrot("당근 10", "설명 10", R.drawable.carrot_character10, 220));
+        adapter.addItem(new Carrot("당근 10", "설명 10", R.drawable.carrot_character10, 230));
+        adapter.addItem(new Carrot("당근 10", "설명 10", R.drawable.carrot_character10, 240));
 
         ImageView setting = (ImageView)findViewById(R.id.ivSetting);
         setting.setOnClickListener(new View.OnClickListener() {

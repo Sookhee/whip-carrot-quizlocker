@@ -35,4 +35,5 @@ public class User {
     public void setCarrotCount(int carrotCount) {
         this.carrotCount = carrotCount;
     }
+
 }
