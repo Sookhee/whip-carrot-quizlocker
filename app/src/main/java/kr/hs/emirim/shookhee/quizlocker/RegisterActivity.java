@@ -3,8 +3,8 @@ package kr.hs.emirim.shookhee.quizlocker;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.service.autofill.UserData;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,18 +18,18 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.regex.Pattern;
+
+import kr.hs.emirim.shookhee.quizlocker.model.User;
+
 
 public class RegisterActivity extends AppCompatActivity {
 
     String email, passwd, passwdRe, nickName;
     // Firebase
     FirebaseAuth firebaseAuth;
-    FirebaseDatabase FirebaseDatabase;
-//    DatabaseReference userDatabaseReference = FirebaseDatabase.getInstance().getReference().child("user");
-    DatabaseReference user = FirebaseDatabase.getInstance().getReference().child("user");
+    private DatabaseReference userDatabaseReference = FirebaseDatabase.getInstance().getReference().child("user");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,16 +65,11 @@ public class RegisterActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
 
                                     if (task.isSuccessful()) {
+                                        User user = new User(nickName, email, 0);
+                                        userDatabaseReference.push().setValue(user);
 
-                                        int idx = email.indexOf("@");
-                                        String emailFront = email.substring(0, '@');
+                                        Toast.makeText(getApplicationContext(), "회원가입 성공!", Toast.LENGTH_SHORT).show();
 
-                                        Map<String, Object> userRegisterMap = new HashMap<String, Object>();
-                                        userRegisterMap.put("nickname", nickName);
-                                        userRegisterMap.put("emailFront", emailFront);
-                                        userRegisterMap.put("email", email);
-                                        userRegisterMap.put("carrotCount", 0);
-//                                        userDatabaseReference.child(emailFront).updateChildren(userRegisterMap);
                                         finish();
                                     } else {
                                         Toast.makeText(RegisterActivity.this, "이미 가입된 메일입니다", Toast.LENGTH_SHORT).show();

@@ -1,10 +1,8 @@
-package kr.hs.emirim.shookhee.quizlocker
+package kr.hs.emirim.shookhee.quizlocker;
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_file_ex.*
-import kotlinx.android.synthetic.main.activity_file_ex.saveButton
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_pref_ex.*
 
 class PrefExActivity : AppCompatActivity() {

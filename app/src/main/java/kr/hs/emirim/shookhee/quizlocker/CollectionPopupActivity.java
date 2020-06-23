@@ -1,7 +1,5 @@
 package kr.hs.emirim.shookhee.quizlocker;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -9,7 +7,9 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-public class PopupCollectionActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class CollectionPopupActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +17,7 @@ public class PopupCollectionActivity extends AppCompatActivity {
         //상태바제거
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_popup_collection);
+        setContentView(R.layout.activity_collection_popup);
 
         TextView answerNum = findViewById(R.id.answerNum);
         Intent secondIntent = getIntent();
@@ -41,7 +41,7 @@ public class PopupCollectionActivity extends AppCompatActivity {
         return;
     }
 
-    public void mOk(View v){
+    public void popupCancel(View v){
         finish();
     }
 }

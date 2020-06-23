@@ -1,15 +1,17 @@
-package kr.hs.emirim.shookhee.quizlocker;
+package kr.hs.emirim.shookhee.quizlocker.model;
 
 public class Carrot {
     private String name;
     private String info;
     private int imgId;
+    private int unlockCount;
 
     public Carrot(){};
-    public Carrot(String name, String info, int imgId){
+    public Carrot(String name, String info, int imgId, int unlockCount){
         this.name = name;
         this.info = info;
         this.imgId = imgId;
+        this.unlockCount = unlockCount;
     }
 
     public String getName() {
@@ -34,5 +36,13 @@ public class Carrot {
 
     public void setInfo(String info) {
         this.info = info;
+    }
+
+    public int getUnlockCount() {
+        return unlockCount;
+    }
+
+    public void setUnlockCount(int unlockCount) {
+        this.unlockCount = unlockCount;
     }
 }

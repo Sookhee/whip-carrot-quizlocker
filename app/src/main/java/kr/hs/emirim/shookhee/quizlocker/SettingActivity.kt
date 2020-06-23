@@ -1,14 +1,12 @@
 package kr.hs.emirim.shookhee.quizlocker
 
-import android.content.Context
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.MultiSelectListPreference
 import android.preference.PreferenceFragment
 import android.preference.SwitchPreference
-import kotlinx.android.synthetic.main.activity_main.*
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_setting.*
 
 class SettingActivity : AppCompatActivity() {
@@ -19,15 +17,9 @@ class SettingActivity : AppCompatActivity() {
         // preferenceContent FrameLayout 영역을 PreferenceFragment 로 교체
         fragmentManager.beginTransaction().replace(R.id.preferenceContent, fragment).commit()
 
-        initButton.setOnClickListener{initAnswerCount()}
-    }
-
-    fun initAnswerCount(){
-        val correctAnswerPref = getSharedPreferences("correctAnswer", Context.MODE_PRIVATE)
-        val wrongAnswerPref = getSharedPreferences("wrongAnswer", Context.MODE_PRIVATE)
-
-        correctAnswerPref.edit().clear().apply()
-        wrongAnswerPref.edit().clear().apply()
+        ivBack.setOnClickListener {
+            super.onBackPressed()
+        }
     }
 
     class MyPreferenceFragment : PreferenceFragment() {
@@ -42,7 +34,7 @@ class SettingActivity : AppCompatActivity() {
             categoryPref.setOnPreferenceChangeListener { preference, newValue ->
                 // newValue 파라미터가 HashSet 으로 캐스팅이 실패하면 리턴
                 val newValueSet = newValue as? HashSet<*>
-                    ?: return@setOnPreferenceChangeListener true
+                        ?: return@setOnPreferenceChangeListener true
                 // 선택된 퀴즈종류로 요약정보 보여줌
                 categoryPref.summary = newValue.joinToString(", ")
                 true

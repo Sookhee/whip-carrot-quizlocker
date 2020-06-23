@@ -3,23 +3,14 @@ package kr.hs.emirim.shookhee.quizlocker
 import android.app.KeyguardManager
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
-import android.media.MediaPlayer
-import android.media.Ringtone
-import android.media.RingtoneManager
-import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
-import android.util.Log
-import android.view.View
 import android.view.WindowManager
 import android.widget.SeekBar
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_quiz_locker.*
-import kr.hs.emirim.shookhee.quizlocker.SaveSharedPreference.PREF_LEVEL
 import org.json.JSONArray
 import org.json.JSONObject
 import java.util.*
@@ -31,11 +22,9 @@ class QuizLockerActivity : AppCompatActivity() {
     // 오답횟수 저장 SharedPreference
     val correctAnswerPref by lazy { getSharedPreferences("correctAnswer", Context.MODE_PRIVATE) }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // 잠금화면보다 상단에 위치하기 위한 설정 조정. 버전별로 사용법이 다르기 때문에 버전에 따라 적용
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
             // 잠금화면에서 보여지도록 설정
             setShowWhenLocked(true)
@@ -68,29 +57,20 @@ class QuizLockerActivity : AppCompatActivity() {
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             // progress 값이 변경될때 불리는 함수
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-//                when {
-//                    // SeekBar 의 우측 끝으로 가면 choice2 를 선택한 것으로 간주한다
-//                    progress > 95 -> {
-//                        leftImageView.setImageResource(R.drawable.padlock)
-//                        // 우측 이미지뷰의 자물쇠 아이콘을 열림 아이콘으로 변경
-//                        rightImageView.setImageResource(R.drawable.unlock)
-//                    }
-//                    // SeekBar 의 좌측 끝으로 가면 choice1 을 선택한 것으로 간주한다
-//                    progress < 5 -> {
-//                        // 좌측 이미지뷰의 자물쇠 아이콘을 열림 아이콘으로 변경
-//                        leftImageView.setImageResource(R.drawable.unlock)
-//                        rightImageView.setImageResource(R.drawable.padlock)
-//                    }
-//
-//
-//                    // 양쪽 끝이 아닌 경우
-//                    else -> {
-//                        // 양쪽 이미지를 모두 잠금 아이콘으로 변경
-//                        leftImageView.setImageResource(R.drawable.padlock)
-//                        rightImageView.setImageResource(R.drawable.padlock)
-//                    }
-//                }
+                when {
+                    // SeekBar 의 우측 끝으로 가면 choice2 를 선택한 것으로 간주한다
+                    progress > 95 -> {
 
+                    }
+                    // SeekBar 의 좌측 끝으로 가면 choice1 을 선택한 것으로 간주한다
+                    progress < 5 -> {
+
+                    }
+                    // 양쪽 끝이 아닌 경우
+                    else -> {
+
+                    }
+                }
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -113,26 +93,16 @@ class QuizLockerActivity : AppCompatActivity() {
 
     // 정답 체크 함수
     fun checkChoice(choice: String) {
-        var mediaplayer : MediaPlayer?= null
-
         quiz?.let {
             when {
                 // choice 의 텍스트가 정답 텍스트와 같으면 Activity 종료
                 choice == it.getString("answer") -> {
-
-                    mediaplayer = MediaPlayer.create(this, R.raw.correct)
-                    mediaplayer?.start()
-
                     // 정답인 경우 정답횟수 증가
                     val id = it.getInt("id").toString()
                     var count = correctAnswerPref.getInt(id, 0)
                     count++
                     correctAnswerPref.edit().putInt(id, count).apply()
                     correctCountLabel.text = "정답횟수: ${count}"
-//                    var intent = Intent(this, PopupActivity::class.java)
-//                    intent.putExtra("quizcheck", "true")
-//                    startActivity(intent)
-
                     // Activity 종료
                     finish()
                 }
@@ -143,16 +113,11 @@ class QuizLockerActivity : AppCompatActivity() {
                     count++
                     wrongAnswerPref.edit().putInt(id, count).apply()
                     wrongCountLabel.text = "오답횟수: ${count}"
-
-
-                    // 정답이 아닌경우 UI 초기화
-//                    leftImageView.setImageResource(R.drawable.padlock)
-//                    rightImageView.setImageResource(R.drawable.padlock)
                     seekBar?.progress = 50
                     // 정답이 아닌 경우 진동알림 추가
                     val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
                     // SDK 버전에 따라 호출
-                    if (Build.VERSION.SDK_INT >= 26) { //버전 26부터는 조절가능
+                    if (Build.VERSION.SDK_INT >= 26) {
                         // 1초동안 100의 세기(최고 255) 로 1회 진동
                         vibrator.vibrate(VibrationEffect.createOneShot(1000, 100))
                     } else {
@@ -160,11 +125,7 @@ class QuizLockerActivity : AppCompatActivity() {
                         vibrator.vibrate(1000)
                     }
 
-                    mediaplayer = MediaPlayer.create(this, R.raw.wrong)
-                    mediaplayer?.start()
-
-
-                    var intent = Intent(this, PopupWhipeActivity::class.java)
+                    var intent = Intent(this, QuizFalsePopupActivity::class.java)
                     startActivity(intent)
                 }
             }

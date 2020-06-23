@@ -2,21 +2,22 @@ package kr.hs.emirim.shookhee.quizlocker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.TextView;
 
-public class PopupWhipeActivity extends AppCompatActivity {
+public class QuizFalsePopupActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         //상태바제거
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_popup_whipe);
+        setContentView(R.layout.activity_quiz_false_popup);
 
     }
 
@@ -35,8 +36,7 @@ public class PopupWhipeActivity extends AppCompatActivity {
         return;
     }
 
-    public void mOk(View v){
+    public void popupCancel(View v){
         finish();
     }
-
 }

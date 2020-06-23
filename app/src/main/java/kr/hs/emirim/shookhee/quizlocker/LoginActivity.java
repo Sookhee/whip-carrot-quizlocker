@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,6 +22,7 @@ import java.util.regex.Pattern;
 public class LoginActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
 
+    String email, passwd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,8 +38,8 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = etEmail.getText().toString().trim();
-                String passwd = etPasswd.getText().toString().trim();
+                email = etEmail.getText().toString().trim();
+                passwd = etPasswd.getText().toString().trim();
 
                 if(!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                     Toast.makeText(getApplicationContext(), "이메일 형식을 다시 확인해주세요", Toast.LENGTH_SHORT).show();
@@ -52,8 +54,17 @@ public class LoginActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
+                                        SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+                                        SharedPreferences.Editor editor = pref.edit();
+                                        editor.putString("userEmail", email).apply();
+                                        editor.putBoolean("isLogin", true).apply();
+                                        Toast.makeText(getApplicationContext(), pref.getString("userEmail", ""), Toast.LENGTH_SHORT).show();
+                                        editor.commit();
+
                                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                         startActivity(intent);
+
+                                        finish();
                                     } else {
                                         Toast.makeText(getApplicationContext(), "가입되지 않은 계정입니다", Toast.LENGTH_SHORT).show();
                                     }

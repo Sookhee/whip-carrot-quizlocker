@@ -1,44 +1,49 @@
-package kr.hs.emirim.shookhee.quizlocker
+package kr.hs.emirim.shookhee.quizlocker;
 
+import android.content.Context
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.MultiSelectListPreference
 import android.preference.PreferenceFragment
 import android.preference.SwitchPreference
+import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     val fragment = MyPreferenceFragment()
+    private var mDatabase: DatabaseReference? = null
+    private var mMessageReference: DatabaseReference? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
-
-        val intent = Intent(this, LoadingActivity::class.java)
-        startActivity(intent)
-
         // preferenceContent FrameLayout 영역을 PreferenceFragment 로 교체
         fragmentManager.beginTransaction().replace(R.id.preferenceContent, fragment).commit()
 
-        //환경설정으로 이동
-        gosetting.setOnClickListener {
+        ivSetting.setOnClickListener{
             val nextIntent = Intent(this, SettingActivity::class.java)
             startActivity(nextIntent)
         }
 
-        goCollection.setOnClickListener {
+        userProfileCarrotImage.setOnClickListener{
             val nextIntent = Intent(this, CollectionActivity::class.java)
             startActivity(nextIntent)
         }
 
+        showMoreRankingButton.setOnClickListener{
+            val nextIntent = Intent(this, RankingActivity::class.java)
+            startActivity(nextIntent)
+        }
+
         goChatting.setOnClickListener{
-            val nextIntent = Intent(this, ChatActivity::class.java)
+            val nextIntent = Intent(this, ChatRoomActivity::class.java)
             startActivity(nextIntent)
         }
 
     }
-
 
     class MyPreferenceFragment : PreferenceFragment() {
         override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,7 +57,7 @@ class MainActivity : AppCompatActivity() {
             categoryPref.setOnPreferenceChangeListener { preference, newValue ->
                 // newValue 파라미터가 HashSet 으로 캐스팅이 실패하면 리턴
                 val newValueSet = newValue as? HashSet<*>
-                    ?: return@setOnPreferenceChangeListener true
+                        ?: return@setOnPreferenceChangeListener true
                 // 선택된 퀴즈종류로 요약정보 보여줌
                 categoryPref.summary = newValue.joinToString(", ")
                 true

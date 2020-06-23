@@ -1,31 +1,23 @@
 [
   {
     "id": 1,
-    "question": "c에서는 malloc을 사용해\n동적할당을 받을 수 있다.",
+    "question": "HTML은 Hyper Text Markup Language의 약자이다",
     "choice1": "O",
     "choice2": "X",
     "answer": "O"
   },
   {
     "id": 2,
-    "question": "퀵 정렬의 시간복잡도로\n알맞은 것은?",
-    "choice1": "O(n)",
-    "choice2": "O(n * log n)",
-    "answer": "O(n * log n)"
+    "question": "자바에서 클래스를 상속받는 명령어는?",
+    "choice1": "extends",
+    "choice2": "implement",
+    "answer": "extends"
   },
   {
     "id": 3,
-    "question": "상위 클래스의 메소드를\n하위 클래스가 재정의해서\n사용하는 방법으로 알맞은 것은?",
-    "choice1": "오버로딩",
-    "choice2": "오버라이딩",
-    "answer": "오버라이딩"
-  },
-  {
-    "id": 4,
-    "question": "input type=\"radio\"는\n여러가지를 선택할 수 있는 속성이다",
-    "choice1": "O",
-    "choice2": "X",
-    "answer": "O"
+    "question": "C언어를 창시한 사람의 이름은?",
+    "choice1": "데니스 리치",
+    "choice2": "제임스 고슬링",
+    "answer": "데니스 리치"
   }
-
 ]

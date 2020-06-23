@@ -1,16 +1,15 @@
 package kr.hs.emirim.shookhee.quizlocker;
 
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -19,74 +18,68 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class ChatActivity extends AppCompatActivity {
 
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    private RecyclerView mRecyclerView;
-    public RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
-    private List<ChatData> chatList;
+    private ListView lv_chting;
+    private EditText et_send;
+    private Button btn_send;
 
-    private String nick = "이얏호";
+    private ArrayAdapter<String> arrayAdapter;
+    private ArrayList<String> arr_room = new ArrayList<>();
 
-    int[] imageID = {R.drawable.carrot_character01, R.drawable.carrot_character02, R.drawable.carrot_character03};
+    private String str_room_name;
+    private String str_user_name;
 
-    private EditText EditText_chat;
-    private Button Button_send;
-    private DatabaseReference myRef;
+    private DatabaseReference reference;
+    private String key;
+    private String chat_user;
+    private String chat_message;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
+        et_send = (EditText) findViewById(R.id.et_send);
+        lv_chting = (ListView) findViewById(R.id.lv_chatting);
+        btn_send = (Button) findViewById(R.id.btn_send);
+        str_room_name = getIntent().getExtras().get("room_name").toString();
+        str_user_name = "sookhee";
 
+        reference = FirebaseDatabase.getInstance().getReference("chat").child(str_room_name);
 
-        Button_send = findViewById(R.id.Button_send);
-        EditText_chat = findViewById(R.id.EditText_chat);
+        arrayAdapter = new ArrayAdapter<String>
+                (this, android.R.layout.simple_list_item_1, arr_room);
+        lv_chting.setAdapter(arrayAdapter);
+        //리스트뷰 갱신되면 하단으로 자동 스크롤 해주는거
+        lv_chting.setTranscriptMode(ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
 
-        Button_send.setOnClickListener(new View.OnClickListener() {
+        btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                String msg = EditText_chat.getText().toString(); //msg
+            public void onClick(View view) {
+                Map<String, Object> map = new HashMap<String, Object>();
+                key = reference.push().getKey();
+                reference.updateChildren(map);
+                DatabaseReference root = reference.child(key);
 
-                if (msg != null) {
-                    ChatData chat = new ChatData();
-                    chat.setImageID(imageID[0]);
-                    chat.setNickname(nick);
-                    chat.setMsg(msg);
-                    myRef.push().setValue(chat);
-                }
+                Map<String, Object> objectMap = new HashMap<String, Object>();
+                objectMap.put("name", str_user_name);
+                objectMap.put("message", et_send.getText().toString());
 
+                root.updateChildren(objectMap);
+
+                et_send.setText("");
             }
         });
 
-
-        mRecyclerView = findViewById(R.id.my_recycler_view);
-        mRecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-
-        chatList = new ArrayList<>();
-        mAdapter = new ChatAdapter(chatList, ChatActivity.this, nick);
-
-        mRecyclerView.setAdapter(mAdapter);
-
-        // Write a message to the database
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        myRef = database.getReference();
-        //myRef.setValue("Hello, World!");
-
-        //caution!!!
-
-        myRef.addChildEventListener(new ChildEventListener() {
+        reference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                Log.d("CHATCHAT", dataSnapshot.getValue().toString());
-                ChatData chat = dataSnapshot.getValue(ChatData.class);
-                ((ChatAdapter) mAdapter).addChat(chat);
+                chatConversation(dataSnapshot);
             }
 
             @Override
@@ -109,7 +102,16 @@ public class ChatActivity extends AppCompatActivity {
 
             }
         });
+    }
 
+    private void chatConversation(DataSnapshot dataSnapshot) {
+        Iterator i = dataSnapshot.getChildren().iterator();
 
+        while (i.hasNext()) {
+            chat_message = (String) ((DataSnapshot) i.next()).getValue();
+            chat_user = (String) ((DataSnapshot) i.next()).getValue();
+            arrayAdapter.add(chat_user + " : " + chat_message);
+        }
+        arrayAdapter.notifyDataSetChanged();
     }
 }

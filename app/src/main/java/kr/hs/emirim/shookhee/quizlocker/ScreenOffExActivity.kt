@@ -1,22 +1,22 @@
-package kr.hs.emirim.shookhee.quizlocker
+package kr.hs.emirim.shookhee.quizlocker;
 
 import android.content.Intent
-import android.content.Intent.ACTION_SCREEN_OFF
 import android.content.IntentFilter
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 
 class ScreenOffExActivity : AppCompatActivity() {
+    // ScreenOffReceiver 객체
+    var screenOffReceiver: ScreenOffReceiver? = null
 
-    var screenOffReceiver : ScreenOffReceiver? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_screen_off_ex)
-
-        if(screenOffReceiver == null){
+        // screenOffReceiver 가 널인 경우에만 screenOffReceiver 를 생성하고 등록한다.
+        if (screenOffReceiver == null) {
             screenOffReceiver = ScreenOffReceiver()
-            val intentFillter = IntentFilter(Intent.ACTION_SCREEN_OFF)
-            registerReceiver(screenOffReceiver, intentFillter)
+            val intentFilter = IntentFilter(Intent.ACTION_SCREEN_OFF)
+            registerReceiver(screenOffReceiver, intentFilter)
         }
     }
 }

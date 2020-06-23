@@ -17,49 +17,36 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".ChatActivity"></activity>
+        <activity android:name=".ChatRoomActivity">
+
+        </activity>
+        <activity android:name=".RankingActivity" />
+        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".RegisterActivity" />
         <activity
-                android:name=".PopupCollectionActivity"
-                android:theme="@style/popupTheme"/>
-        <activity android:name=".LoginActivity">
+                android:name=".QuizFalsePopupActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/popupTheme" />
+        <activity android:name=".CollectionDetailActivity" />
+        <activity
+                android:name=".CollectionPopupActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/popupTheme" />
+        <activity android:name=".CollectionActivity" />
+        <activity android:name=".SettingActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity"></activity>
-        <activity android:name=".CollectionInfoAcivity" />
-        <activity android:name=".CollectionActivity" /> <!-- <activity android:name=".BackgroundActivity" /> -->
-        <activity
-                android:name=".PopupWhipeActivity"
-                android:screenOrientation="portrait"
-                android:theme="@style/popupTheme" />
-        <activity
-                android:name=".PopupActivity"
-                android:screenOrientation="portrait"
-                android:theme="@style/popupTheme" />
-        <activity
-                android:name=".LoadingActivity"
-                android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <activity android:name=".SettingActivity" />
-        <activity android:name=".QuizLockerActivity" />
-
-        <service
-                android:name=".LockScreenService"
-                android:enabled="true"
-                android:exported="true" />
-
-        <activity android:name=".ScreenOffExActivity" />
-        <activity android:name=".PrefFragmentActivity" />
-        <activity android:name=".PrefExActivity" />
         <activity android:name=".FileExActivity" />
-        <activity android:name=".MainActivity">
-
-        </activity>
-
-        <activity android:name=".ChatActivity">
-
-        </activity>
+        <activity android:name=".PrefExActivity" />
+        <activity android:name=".PrefFragmentActivity" /> <!-- 암시적 인텐트로 실행되는 브로드캐스트 리시버 등록 -->
+        <activity android:name=".ScreenOffExActivity" />
+        <activity android:name=".QuizLockerActivity" />
 
         <receiver
                 android:name=".BootCompleteReceiver"
@@ -69,9 +56,10 @@
             </intent-filter>
         </receiver>
 
-        <meta-data
-                android:name="preloaded_fonts"
-                android:resource="@array/preloaded_fonts" />
+        <service
+                android:name=".LockScreenService"
+                android:enabled="true"
+                android:exported="true" />
     </application>
 
 </manifest>

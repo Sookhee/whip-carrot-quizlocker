@@ -1,16 +1,16 @@
 package kr.hs.emirim.shookhee.quizlocker;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class CollectionInfoAcivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class CollectionDetailActivity extends AppCompatActivity {
+
     String name;
     String info;
     int img;
@@ -18,7 +18,7 @@ public class CollectionInfoAcivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_collection_info_acivity);
+        setContentView(R.layout.activity_collection_detail);
 
         ImageView ivCarrotImage = (ImageView)findViewById(R.id.carrotImageView);
         Button btnCarrotName = (Button)findViewById(R.id.carrotNameButton);
