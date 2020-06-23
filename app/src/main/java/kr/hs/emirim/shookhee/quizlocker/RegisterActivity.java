@@ -70,6 +70,16 @@ public class RegisterActivity extends AppCompatActivity {
 
                                         Toast.makeText(getApplicationContext(), "회원가입 성공!", Toast.LENGTH_SHORT).show();
 
+<<<<<<< HEAD
+=======
+                                        Map<String, Object> userRegisterMap = new HashMap<String, Object>();
+                                        userRegisterMap.put("nickname", nickName);
+                                        userRegisterMap.put("emailFront", emailFront);
+                                        userRegisterMap.put("email", email);
+                                        userRegisterMap.put("carrotCount", 0);
+
+                                        user.child(emailFront).updateChildren(userRegisterMap);
+>>>>>>> fb74935dce9ef24ccadd1998984f853c91ed7475
                                         finish();
                                     } else {
                                         Toast.makeText(RegisterActivity.this, "이미 가입된 메일입니다", Toast.LENGTH_SHORT).show();
