@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,11 +18,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,6 +48,11 @@ public class ChatRoomActivity extends AppCompatActivity {
 
     private String str_name;
     private String str_room;
+    private String temp_user_email = "";
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference userReference = database.getReference().child("user");
+    Query userQuery;
 
     Map<String, Object> map = new HashMap<String, Object>();
 
@@ -53,14 +62,13 @@ public class ChatRoomActivity extends AppCompatActivity {
         setTitle("랜덤채팅");
         setContentView(R.layout.activity_chat_room);
 
-
-        //로그인 화면에서 닉네임 가져오기
-        Intent intent = getIntent();
-//        str_name = intent.getStringExtra("name");
+        SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+        temp_user_email = pref.getString("userEmail", "");
 
         listVIew = (ListView) findViewById(R.id.list);
         btn_create = (Button) findViewById(R.id.btn_create);
 
+        getUserNickname();
 
         //채팅방 리스트 보여주기
         arrayAdapter = new ArrayAdapter<String>(this,
@@ -136,5 +144,37 @@ public class ChatRoomActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public void getUserNickname(){
+
+        userQuery = userReference.orderByChild("email").equalTo(temp_user_email);
+        userQuery.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                 str_name = (String)dataSnapshot.child("nickname").getValue(String.class);
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                str_name = dataSnapshot.child("nicknames").getValue(String.class);
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
     }
 }

@@ -56,8 +56,8 @@ public class LoginActivity extends AppCompatActivity {
                                     if (task.isSuccessful()) {
                                         SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
                                         SharedPreferences.Editor editor = pref.edit();
-                                        editor.putString("userEmail", email).apply();
-                                        editor.putBoolean("isLogin", true).apply();
+                                        editor.putString("userEmail", email);
+                                        editor.putBoolean("isLogin", true);
                                         Toast.makeText(getApplicationContext(), pref.getString("userEmail", ""), Toast.LENGTH_SHORT).show();
                                         editor.commit();
 
