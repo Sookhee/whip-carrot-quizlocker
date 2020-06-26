@@ -108,5 +108,22 @@
                 app:layout_constraintStart_toStartOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <Button
+                android:id="@+id/setImage"
+                android:layout_width="83dp"
+                android:layout_height="37dp"
+                android:background="@drawable/carrot_image"
+                android:fontFamily="@font/notosanscjkkr_regular"
+                android:shadowRadius="5"
+                android:text="대표 당근"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.946"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.054" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
