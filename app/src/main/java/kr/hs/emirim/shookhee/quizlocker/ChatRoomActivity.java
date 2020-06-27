@@ -140,7 +140,6 @@ public class ChatRoomActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(ChatRoomActivity.this, ChatActivity.class);
                 intent.putExtra("room_name", ((TextView) view).getText().toString());
-                intent.putExtra("user_name", str_name);
                 startActivity(intent);
             }
         });

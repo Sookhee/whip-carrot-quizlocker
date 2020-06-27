@@ -47,7 +47,6 @@ public class ChatActivity extends AppCompatActivity {
         lv_chting = (ListView) findViewById(R.id.lv_chatting);
         btn_send = (Button) findViewById(R.id.btn_send);
         str_room_name = getIntent().getExtras().get("room_name").toString();
-        str_user_name = getIntent().getExtras().get("user_name").toString();
 
 
         reference = FirebaseDatabase.getInstance().getReference("chat").child(str_room_name);
