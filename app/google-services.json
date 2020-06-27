@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "980008208314-l2sollspdjnmg0n9rnfudv3eamtlpmvi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kr.hs.emirim.shookhee.quizlocker",
+            "certificate_hash": "f2b6f183c8bb4202760ec0ffb71330d6d10beb74"
+          }
+        },
+        {
           "client_id": "980008208314-6hsbp0a139q4i4u5ssehpm9j5reh374c.apps.googleusercontent.com",
           "client_type": 3
         }
