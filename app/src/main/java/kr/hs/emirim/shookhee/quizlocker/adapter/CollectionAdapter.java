@@ -1,4 +1,4 @@
-package kr.hs.emirim.shookhee.quizlocker;
+package kr.hs.emirim.shookhee.quizlocker.adapter;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -11,6 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import kr.hs.emirim.shookhee.quizlocker.CollectionDetailActivity;
+import kr.hs.emirim.shookhee.quizlocker.CollectionPopupActivity;
+import kr.hs.emirim.shookhee.quizlocker.R;
 import kr.hs.emirim.shookhee.quizlocker.model.Carrot;
 
 
@@ -50,7 +53,7 @@ public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.It
         return listData.size();
     }
 
-    void addItem(Carrot data) {
+    public void addItem(Carrot data) {
         listData.add(data);
     }
 

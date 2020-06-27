@@ -64,7 +64,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
 
                                     if (task.isSuccessful()) {
-                                        User user = new User(nickName, email, 0);
+                                        User user = new User(nickName, email, 0, 1);
                                         userDatabaseReference.push().setValue(user);
 
                                         Toast.makeText(getApplicationContext(), "회원가입 성공!", Toast.LENGTH_SHORT).show();
