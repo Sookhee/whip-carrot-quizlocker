@@ -48,7 +48,6 @@ public class ChatActivity extends AppCompatActivity {
         btn_send = (Button) findViewById(R.id.btn_send);
         str_room_name = getIntent().getExtras().get("room_name").toString();
 
-
         reference = FirebaseDatabase.getInstance().getReference("chat").child(str_room_name);
 
         arrayAdapter = new ArrayAdapter<String>
