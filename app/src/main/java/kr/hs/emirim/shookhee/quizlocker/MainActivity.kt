@@ -1,4 +1,4 @@
-package kr.hs.emirim.shookhee.quizlocker;
+package kr.hs.emirim.shookhee.quizlocker
 
 import android.content.Context
 import android.content.Intent
@@ -9,12 +9,15 @@ import android.preference.PreferenceFragment
 import android.preference.SwitchPreference
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
+import com.google.firebase.database.annotations.Nullable
 import kotlinx.android.synthetic.main.activity_main.*
+import kr.hs.emirim.shookhee.quizlocker.model.User
 
 class MainActivity : AppCompatActivity() {
     val fragment = MyPreferenceFragment()
     private var mDatabase: DatabaseReference? = null
     private var mMessageReference: DatabaseReference? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +45,47 @@ class MainActivity : AppCompatActivity() {
             val nextIntent = Intent(this, ChatRoomActivity::class.java)
             startActivity(nextIntent)
         }
+
+        val database = FirebaseDatabase.getInstance()
+        val userReference = database.getReference("user")
+
+        val pref =
+            getSharedPreferences("pref", Context.MODE_PRIVATE)
+        val editor = pref.edit()
+
+        userReference.orderByChild("email").equalTo(pref.getString("userEmail", ""))
+            .addChildEventListener(object : ChildEventListener {
+                override fun onChildAdded(
+                    dataSnapshot: DataSnapshot,
+                    @Nullable s: String?
+                ) {
+                    val user =
+                        dataSnapshot.getValue(
+                            User::class.java
+                        )
+                    carrotCountTextView.text = "${user!!.carrotCount} 개"
+                }
+
+                override fun onChildChanged(
+                    dataSnapshot: DataSnapshot,
+                    @Nullable s: String?
+                ) {
+                    val user =
+                        dataSnapshot.getValue(
+                            User::class.java
+                        )
+                    carrotCountTextView.text = "${user!!.carrotCount} 개"
+                }
+
+                override fun onChildRemoved(dataSnapshot: DataSnapshot) {}
+                override fun onChildMoved(
+                    dataSnapshot: DataSnapshot,
+                    @Nullable s: String?
+                ) {
+                }
+
+                override fun onCancelled(databaseError: DatabaseError) {}
+            })
 
     }
 

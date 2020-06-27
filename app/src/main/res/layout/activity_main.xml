@@ -120,17 +120,16 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/carrotCountTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:fontFamily="@font/notosanscjkkr_regular"
-                    android:includeFontPadding="false"
-                    android:text="84 개"
-                    android:textColor="@android:color/black"
-                    app:layout_constraintBottom_toBottomOf="@+id/carrotCountImageView"
-                    app:layout_constraintStart_toEndOf="@+id/carrotCountImageView"
-                    app:layout_constraintTop_toTopOf="@+id/carrotCountImageView" />
+                        android:id="@+id/carrotCountTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/notosanscjkkr_regular"
+                        android:includeFontPadding="false"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintBottom_toBottomOf="@+id/carrotCountImageView"
+                        app:layout_constraintStart_toEndOf="@+id/carrotCountImageView"
+                        app:layout_constraintTop_toTopOf="@+id/carrotCountImageView" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import kr.hs.emirim.shookhee.quizlocker.adapter.CollectionAdapter;
 import kr.hs.emirim.shookhee.quizlocker.model.Carrot;
 
 
@@ -27,6 +28,7 @@ public class CollectionActivity extends AppCompatActivity {
 //        mLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(adapter);
+
         adapter.addItem(new Carrot("당근 1", "설명 1", R.drawable.carrot_character01, 0));
         adapter.addItem(new Carrot("당근 2", "설명 2", R.drawable.carrot_character02, 10));
         adapter.addItem(new Carrot("당근 3", "설명 3", R.drawable.carrot_character03, 20));

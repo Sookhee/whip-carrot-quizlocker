@@ -1,4 +1,4 @@
-package kr.hs.emirim.shookhee.quizlocker;
+package kr.hs.emirim.shookhee.quizlocker.adapter;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -11,6 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import kr.hs.emirim.shookhee.quizlocker.CollectionDetailActivity;
+import kr.hs.emirim.shookhee.quizlocker.CollectionPopupActivity;
+import kr.hs.emirim.shookhee.quizlocker.R;
 import kr.hs.emirim.shookhee.quizlocker.model.Carrot;
 
 
@@ -31,6 +34,8 @@ public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.It
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         holder.onBind(listData.get(position));
 
+        holder.carrotPosition = position+1;
+
         Carrot carrot = listData.get(position);
 
         // 정보 전달.
@@ -50,7 +55,7 @@ public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.It
         return listData.size();
     }
 
-    void addItem(Carrot data) {
+    public void addItem(Carrot data) {
         listData.add(data);
     }
 
@@ -58,6 +63,7 @@ public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.It
 
         String name;
         String info;
+        int carrotPosition = 0;
         int img, unlockCount = 100;
 
         private ImageView ivCarrotImg;
@@ -73,6 +79,7 @@ public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.It
                         intent.putExtra("name", name);
                         intent.putExtra("info", info);
                         intent.putExtra("img", img);
+                        intent.putExtra("carrotPosition", carrotPosition);
                         v.getContext().startActivity(intent);
                     }
                     else {

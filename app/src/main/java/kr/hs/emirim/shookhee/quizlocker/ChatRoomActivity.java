@@ -36,6 +36,8 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import kr.hs.emirim.shookhee.quizlocker.model.User;
+
 public class ChatRoomActivity extends AppCompatActivity {
     private ListView listVIew;
     private Button btn_create;
@@ -44,7 +46,6 @@ public class ChatRoomActivity extends AppCompatActivity {
     private ArrayList<String> arr_roomList = new ArrayList<>();
     private DatabaseReference reference = FirebaseDatabase.getInstance()
             .getReference().getRoot();
-    private String name;
 
     private String str_name;
     private String str_room;
@@ -52,7 +53,6 @@ public class ChatRoomActivity extends AppCompatActivity {
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference userReference = database.getReference().child("user");
-    Query userQuery;
 
     Map<String, Object> map = new HashMap<String, Object>();
 
@@ -140,6 +140,7 @@ public class ChatRoomActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(ChatRoomActivity.this, ChatActivity.class);
                 intent.putExtra("room_name", ((TextView) view).getText().toString());
+                intent.putExtra("str_name", str_name);
                 startActivity(intent);
             }
         });
@@ -147,17 +148,19 @@ public class ChatRoomActivity extends AppCompatActivity {
 
     public void getUserNickname(){
 
-        userQuery = userReference.orderByChild("email").equalTo(temp_user_email);
-        userQuery.addChildEventListener(new ChildEventListener() {
+        userReference.orderByChild("email").equalTo(temp_user_email).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                 str_name = (String)dataSnapshot.child("nickname").getValue(String.class);
+                User user = dataSnapshot.getValue(User.class);
+                str_name = user.getNickname();
             }
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                str_name = dataSnapshot.child("nicknames").getValue(String.class);
+                User user = dataSnapshot.getValue(User.class);
+                str_name = user.getNickname();
             }
+
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
@@ -176,4 +179,5 @@ public class ChatRoomActivity extends AppCompatActivity {
         });
 
     }
+
 }

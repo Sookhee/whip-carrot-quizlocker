@@ -3,9 +3,11 @@ package kr.hs.emirim.shookhee.quizlocker;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,11 +18,23 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.annotations.Nullable;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Pattern;
+
+import kr.hs.emirim.shookhee.quizlocker.model.User;
 
 public class LoginActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference userReference = database.getReference("user");
 
     String email, passwd;
     @Override
@@ -56,13 +70,15 @@ public class LoginActivity extends AppCompatActivity {
                                     if (task.isSuccessful()) {
                                         SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
                                         SharedPreferences.Editor editor = pref.edit();
+
                                         editor.putString("userEmail", email);
                                         editor.putBoolean("isLogin", true);
-                                        Toast.makeText(getApplicationContext(), pref.getString("userEmail", ""), Toast.LENGTH_SHORT).show();
                                         editor.commit();
 
                                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                         startActivity(intent);
+
+                                        getCarrotCount();
 
                                         finish();
                                     } else {
@@ -83,4 +99,54 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void getCarrotCount(){
+        SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+
+        userReference.orderByChild("email").equalTo(pref.getString("userEmail", "")).addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+                SharedPreferences.Editor editor = pref.edit();
+
+                User user = dataSnapshot.getValue(User.class);
+                editor.putInt("allCarrotCount", user.getCarrotCount());
+                editor.putString("userKey", dataSnapshot.getKey());
+                editor.commit();
+
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+                SharedPreferences.Editor editor = pref.edit();
+
+                User user = dataSnapshot.getValue(User.class);
+                editor.putInt("allCarrotCount", user.getCarrotCount());
+                editor.putString("userKey", dataSnapshot.getKey());
+                editor.commit();
+
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+    }
+
 }
