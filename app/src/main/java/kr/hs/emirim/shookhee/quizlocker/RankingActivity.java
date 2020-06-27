@@ -60,7 +60,6 @@ public class RankingActivity extends AppCompatActivity {
                 rankingKey.add(dataSnapshot.getKey());
                 userRanking.add(dataSnapshot.getValue(User.class));
                 User user = dataSnapshot.getValue(User.class);
-                Log.e("SORT", user.getNickname() + " : " + user.getCarrotCount());
 
                 adapter.addItem(user);
                 adapter.notifyDataSetChanged();

@@ -71,19 +71,8 @@ public class RegisterActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
 
                                     if (task.isSuccessful()) {
-<<<<<<< HEAD
                                         User user = new User(nickName, email, 0, 1);
                                         userDatabaseReference.push().setValue(user);
-=======
-
-                                        User user = new User(nickName, email, 0);
-                                        userDatabaseReference.child(email).push().setValue(user);
-
-//                                        Map<String, User> users = new HashMap<>();
-//                                        users.put(email, new User(nickName, email, 0));
-//
-//                                        userDatabaseReference.child(email).push().setValue(users);
->>>>>>> 7d14815d209370aadc308ca4afc8e7b1b7f3b009
 
                                         Toast.makeText(getApplicationContext(), "회원가입 성공!", Toast.LENGTH_SHORT).show();
 

@@ -7,9 +7,11 @@ import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
+import android.util.Log
 import android.view.WindowManager
 import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_quiz_locker.*
 import org.json.JSONArray
 import org.json.JSONObject
@@ -22,9 +24,11 @@ class QuizLockerActivity : AppCompatActivity() {
     // 오답횟수 저장 SharedPreference
     val correctAnswerPref by lazy { getSharedPreferences("correctAnswer", Context.MODE_PRIVATE) }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // 잠금화면보다 상단에 위치하기 위한 설정 조정. 버전별로 사용법이 다르기 때문에 버전에 따라 적용
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
             // 잠금화면에서 보여지도록 설정
             setShowWhenLocked(true)
@@ -33,12 +37,12 @@ class QuizLockerActivity : AppCompatActivity() {
             keyguardManager.requestDismissKeyguard(this, null)
         } else {
             // 잠금화면에서 보여지도록 설정
-            window.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
+            window.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED)
             // 기본 잠금화면을 해제
-            window.addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD)
         }
         // 화면을 켜진 상태로 유지
-        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         setContentView(R.layout.activity_quiz_locker)
         // 퀴즈 데이터를 가져온다.
         val json = assets.open("capital.json").reader().readText()
@@ -50,7 +54,7 @@ class QuizLockerActivity : AppCompatActivity() {
         choice1.text = quiz?.getString("choice1")
         choice2.text = quiz?.getString("choice2")
         // 정답횟수 오답횟수를 보여준다.
-        val id = quiz?.getInt("id").toString() ?: ""
+        val id = quiz?.getInt("id").toString()
         correctCountLabel.text = "정답횟수:${correctAnswerPref.getInt(id, 0)}"
         wrongCountLabel.text = "오답횟수: ${wrongAnswerPref.getInt(id, 0)}"
         // SeekBar 의 값이 변경될때 불리는 리스너
@@ -103,6 +107,23 @@ class QuizLockerActivity : AppCompatActivity() {
                     count++
                     correctAnswerPref.edit().putInt(id, count).apply()
                     correctCountLabel.text = "정답횟수: ${count}"
+
+                    val sharedPref = getSharedPreferences("pref", Context.MODE_PRIVATE)
+                    var editor = sharedPref.edit()
+
+                    editor.putInt("allCarrotCount", (sharedPref.getInt("allCarrotCount", 0))+1)
+                    editor.commit()
+
+                    val database = FirebaseDatabase.getInstance()
+                    val userReference = database.getReference("user")
+
+                    val carrotCountMap: MutableMap<String, Any> =
+                        HashMap()
+                    carrotCountMap["carrotCount"] = (sharedPref.getInt("allCarrotCount", 0))
+
+                    val userKey = sharedPref.getString("userKey", "")
+                    userReference.child("${userKey}").updateChildren(carrotCountMap)
+
                     // Activity 종료
                     finish()
                 }
