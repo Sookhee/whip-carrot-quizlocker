@@ -135,7 +135,6 @@ public class ChatRoomActivity extends AppCompatActivity {
 
         //리스트뷰의 채팅방을 클릭했을때
         //채팅방의 이름과 입장하는 유저의 이름 전달
-
         listVIew.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
