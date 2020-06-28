@@ -1,7 +1,6 @@
 package kr.hs.emirim.shookhee.quizlocker.model;
 
 public class Chat {
-
     private String chat_user;
     private String chat_message;
     private int profile_id;
@@ -25,4 +24,15 @@ public class Chat {
         this.profile_id = profile_id;
     }
 
+    public String getChat_user() {
+        return chat_user;
+    }
+
+    public String getChat_message() {
+        return chat_message;
+    }
+
+    public int getProfile_id() {
+        return profile_id;
+    }
 }
