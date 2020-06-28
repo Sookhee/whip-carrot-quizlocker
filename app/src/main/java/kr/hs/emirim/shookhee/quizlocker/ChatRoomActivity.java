@@ -49,6 +49,7 @@ public class ChatRoomActivity extends AppCompatActivity {
 
     private String str_name;
     private String str_room;
+    private int profileID;
     private String temp_user_email = "";
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -59,7 +60,7 @@ public class ChatRoomActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setTitle("랜덤채팅");
+        setTitle("채팅");
         setContentView(R.layout.activity_chat_room);
 
         SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
@@ -138,9 +139,10 @@ public class ChatRoomActivity extends AppCompatActivity {
         listVIew.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(ChatRoomActivity.this, ChatActivity.class);
+                Intent intent = new Intent(ChatRoomActivity.this, ChattingActivity.class);
                 intent.putExtra("room_name", ((TextView) view).getText().toString());
                 intent.putExtra("str_name", str_name);
+                intent.putExtra("profileID", profileID);
                 startActivity(intent);
             }
         });
@@ -153,6 +155,7 @@ public class ChatRoomActivity extends AppCompatActivity {
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 User user = dataSnapshot.getValue(User.class);
                 str_name = user.getNickname();
+                profileID = user.getProfileId();
             }
 
             @Override
