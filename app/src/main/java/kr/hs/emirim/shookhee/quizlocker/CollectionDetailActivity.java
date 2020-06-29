@@ -11,12 +11,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,10 +32,12 @@ public class CollectionDetailActivity extends AppCompatActivity {
     int img;
     int carrotPosition;
     String temp_user_email ="";
+    String key="";
 
     // Firebase
     FirebaseAuth firebaseAuth;
     private DatabaseReference userDatabaseReference = FirebaseDatabase.getInstance().getReference().child("user");
+    Query reference = FirebaseDatabase.getInstance().getReference().child("user");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +68,19 @@ public class CollectionDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Map<String, Object> carrotImage = new HashMap<String, Object>();
-                carrotImage.put("/"+temp_user_email+"/profileId", carrotPosition);
+
+                reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        key = dataSnapshot.getKey();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+                carrotImage.put(key+"/"+temp_user_email+"/profileId", carrotPosition);
                 userDatabaseReference.updateChildren(carrotImage);
 
                 Toast.makeText(CollectionDetailActivity.this, "대표 당근으로 설정되었습니다.", Toast.LENGTH_SHORT).show();
