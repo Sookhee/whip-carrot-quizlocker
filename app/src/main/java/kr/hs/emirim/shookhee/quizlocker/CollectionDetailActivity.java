@@ -29,6 +29,7 @@ public class CollectionDetailActivity extends AppCompatActivity {
 
     String name;
     String info;
+    String userKey;
     int img;
     int carrotPosition;
     String temp_user_email ="";
@@ -37,7 +38,6 @@ public class CollectionDetailActivity extends AppCompatActivity {
     // Firebase
     FirebaseAuth firebaseAuth;
     private DatabaseReference userDatabaseReference = FirebaseDatabase.getInstance().getReference().child("user");
-    Query reference = FirebaseDatabase.getInstance().getReference().child("user");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,10 @@ public class CollectionDetailActivity extends AppCompatActivity {
         firebaseAuth = firebaseAuth.getInstance();
 
         SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+
         temp_user_email = pref.getString("userEmail", "");
+        userKey = pref.getString("userKey", "");
+
 
         ImageView ivCarrotImage = (ImageView)findViewById(R.id.carrotImageView);
         Button btnCarrotName = (Button)findViewById(R.id.carrotNameButton);
@@ -67,28 +70,22 @@ public class CollectionDetailActivity extends AppCompatActivity {
         setIamgeBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Map<String, Object> carrotImage = new HashMap<String, Object>();
 
-                reference.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        key = dataSnapshot.getKey();
-                    }
+                Map<String, Object> profileIdMap = new HashMap<String, Object>();
+                profileIdMap.put("profileId", carrotPosition);
+                userDatabaseReference.child(userKey).updateChildren(profileIdMap);
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-                carrotImage.put(key+"/"+temp_user_email+"/profileId", carrotPosition);
-                userDatabaseReference.updateChildren(carrotImage);
+                SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+                SharedPreferences.Editor editor = pref.edit();
+                editor.putInt("profileId", carrotPosition);
+                editor.commit();
 
                 Toast.makeText(CollectionDetailActivity.this, "대표 당근으로 설정되었습니다.", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    public void onBackClick(View view){
+    public void onClickBack(View view){
         super.onBackPressed();
     }
 }

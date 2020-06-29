@@ -75,17 +75,17 @@ public class RankingAdapter extends RecyclerView.Adapter<RankingAdapter.ItemView
             tvCarrotCount.setText(data.getCarrotCount() + "");
 
             switch (data.getProfileId()){
-                case 1 : ivCarrotProfile.setBackgroundResource(R.drawable.carrot_character01); break;
-                case 2 : ivCarrotProfile.setBackgroundResource(R.drawable.carrot_character02); break;
-                case 3 : ivCarrotProfile.setBackgroundResource(R.drawable.carrot_character03); break;
-                case 4 : ivCarrotProfile.setBackgroundResource(R.drawable.carrot_character04); break;
-                case 5 : ivCarrotProfile.setBackgroundResource(R.drawable.carrot_character05); break;
-                case 6 : ivCarrotProfile.setBackgroundResource(R.drawable.carrot_character06); break;
-                case 7 : ivCarrotProfile.setBackgroundResource(R.drawable.carrot_character07); break;
-                case 8 : ivCarrotProfile.setBackgroundResource(R.drawable.carrot_character08); break;
-                case 9 : ivCarrotProfile.setBackgroundResource(R.drawable.carrot_character09); break;
-                case 10 : ivCarrotProfile.setBackgroundResource(R.drawable.carrot_character10); break;
-                default: ivCarrotProfile.setBackgroundResource(R.drawable.carrot_character01);
+                case 1 : ivCarrotProfile.setImageResource(R.drawable.carrot_character01); break;
+                case 2 : ivCarrotProfile.setImageResource(R.drawable.carrot_character02); break;
+                case 3 : ivCarrotProfile.setImageResource(R.drawable.carrot_character03); break;
+                case 4 : ivCarrotProfile.setImageResource(R.drawable.carrot_character04); break;
+                case 5 : ivCarrotProfile.setImageResource(R.drawable.carrot_character05); break;
+                case 6 : ivCarrotProfile.setImageResource(R.drawable.carrot_character06); break;
+                case 7 : ivCarrotProfile.setImageResource(R.drawable.carrot_character07); break;
+                case 8 : ivCarrotProfile.setImageResource(R.drawable.carrot_character08); break;
+                case 9 : ivCarrotProfile.setImageResource(R.drawable.carrot_character09); break;
+                case 10 : ivCarrotProfile.setImageResource(R.drawable.carrot_character10); break;
+                default: ivCarrotProfile.setImageResource(R.drawable.carrot_character01);
             }
 
         }

@@ -90,34 +90,51 @@
                     app:layout_constraintTop_toTopOf="@+id/goChatting"
                     app:srcCompat="@drawable/icon_carrot" />
 
-                <LinearLayout
-                    android:id="@+id/goCollection"
-                    android:layout_width="240dp"
-                    android:layout_height="210dp"
-                    android:layout_marginTop="32dp"
-                    android:gravity="bottom"
-                    android:orientation="vertical"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/goChatting">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/goCollection"
+                        android:layout_width="240dp"
+                        android:layout_height="210dp"
+                        android:layout_marginTop="32dp"
+                        android:gravity="bottom|center"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/goChatting">
 
                     <ImageView
-                        android:id="@+id/userProfileCarrotImage"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/carrot_character04" />
+                            android:id="@+id/imageView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginBottom="8dp"
+                            android:adjustViewBounds="true"
+                            app:layout_constraintBottom_toTopOf="@+id/userName"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:srcCompat="@drawable/icon_carrot_stage" />
+
+                    <ImageView
+                            android:id="@+id/userProfileCarrotImage"
+                            android:layout_width="0dp"
+                            android:layout_height="176dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/userName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/notosanscjkkr_medium"
-                        android:gravity="center"
-                        android:includeFontPadding="false"
-                        android:text="sookhee"
-                        android:textColor="@color/black"
-                        android:textSize="14sp" />
-                </LinearLayout>
+                            android:id="@+id/userName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosanscjkkr_medium"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:text="sookhee"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
                         android:id="@+id/carrotCountTextView"
@@ -151,6 +168,17 @@
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
+                <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/ranking_recyclerview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:overScrollMode="never"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5" />
+
                 <TextView
                     android:id="@+id/textView6"
                     android:layout_width="match_parent"
@@ -163,16 +191,17 @@
                     android:textSize="14sp" />
 
                 <Button
-                    android:id="@+id/showMoreRankingButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="32dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/orange"
-                    android:fontFamily="@font/notosanscjkkr_medium"
-                    android:includeFontPadding="false"
-                    android:text="랭킹 더보기"
-                    android:textColor="@color/white"
-                    android:textSize="14sp" />
+                        android:id="@+id/showMoreRankingButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="24dp"
+                        android:background="@color/orange"
+                        android:fontFamily="@font/notosanscjkkr_medium"
+                        android:includeFontPadding="false"
+                        android:text="랭킹 더보기"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
 
             </LinearLayout>
 

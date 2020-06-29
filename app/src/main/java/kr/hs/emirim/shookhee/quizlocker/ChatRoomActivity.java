@@ -183,4 +183,8 @@ public class ChatRoomActivity extends AppCompatActivity {
 
     }
 
+    public void onClickBack(View view){
+        finish();
+    }
+
 }

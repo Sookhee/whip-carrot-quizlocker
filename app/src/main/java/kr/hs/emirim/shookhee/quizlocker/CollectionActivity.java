@@ -56,7 +56,7 @@ public class CollectionActivity extends AppCompatActivity {
     }
 
 
-    public void goback(View v){
+    public void onClickBack(View v){
         super.onBackPressed();
     }
 }

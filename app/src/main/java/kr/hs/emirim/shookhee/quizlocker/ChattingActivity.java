@@ -1,10 +1,12 @@
 package kr.hs.emirim.shookhee.quizlocker;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,21 +31,14 @@ public class ChattingActivity extends AppCompatActivity {
     public RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private List<Chat> chatList;
-
-
-    int[] imageID = {
-            R.drawable.carrot_character01, R.drawable.carrot_character02, R.drawable.carrot_character03,
-            R.drawable.carrot_character04, R.drawable.carrot_character05, R.drawable.carrot_character06,
-            R.drawable.carrot_character07, R.drawable.carrot_character08, R.drawable.carrot_character09,
-            R.drawable.carrot_character10
-    };
+    private TextView tvChatTitle;
 
     private EditText EditText_chat;
     private Button Button_send;
     private String str_user_name;
     private String str_room_name;
     private int profileID;
-   // private DatabaseReference myRef;
+
     private DatabaseReference reference;
 
 
@@ -52,14 +47,19 @@ public class ChattingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatting);
 
+        SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+
         str_room_name = getIntent().getExtras().get("room_name").toString();
         str_user_name = getIntent().getExtras().get("str_name").toString();
-        profileID = Integer.parseInt(getIntent().getExtras().get("profileID").toString());
+        profileID = pref.getInt("profileId", 1);
 
         reference = FirebaseDatabase.getInstance().getReference("chat").child(str_room_name);
 
         Button_send = findViewById(R.id.Button_send);
         EditText_chat = findViewById(R.id.EditText_chat);
+        tvChatTitle = findViewById(R.id.tvChatTitle);
+
+        tvChatTitle.setText(str_room_name);
 
         Button_send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,11 +68,13 @@ public class ChattingActivity extends AppCompatActivity {
 
                 if (msg != null) {
                     Chat chat = new Chat();
-                    chat.setProfile_id(imageID[profileID-1]);
+                    chat.setProfile_id(profileID);
                     chat.setChat_user(str_user_name);
                     chat.setChat_message(msg);
                     reference.push().setValue(chat);
                 }
+
+                EditText_chat.setText("");
 
             }
         });
@@ -131,5 +133,9 @@ public class ChattingActivity extends AppCompatActivity {
         //1-1. recyclerview - chat data
         //1. message, nickname - Data Transfer Object
 
+    }
+
+    public void onClickBack(View view){
+        finish();
     }
 }

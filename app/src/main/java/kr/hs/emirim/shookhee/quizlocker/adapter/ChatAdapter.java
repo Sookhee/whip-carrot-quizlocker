@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -54,7 +55,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyViewHolder> 
     @Override
     public ChatAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent,int viewType) {
         // create a new view
-        LinearLayout v = (LinearLayout) LayoutInflater.from(parent.getContext())
+        ConstraintLayout v = (ConstraintLayout) LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.chat_list, parent, false);
 
         MyViewHolder vh = new MyViewHolder(v);
@@ -70,7 +71,20 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyViewHolder> 
         // - replace the contents of the view with that element
         Chat chat = mDataset.get(position);
 
-        holder.ImageView_profile.setImageResource(chat.getProfile_id());
+        switch (chat.getProfile_id()){
+            case 1 : holder.ImageView_profile.setImageResource(R.drawable.carrot_character01); break;
+            case 2 : holder.ImageView_profile.setImageResource(R.drawable.carrot_character02); break;
+            case 3 : holder.ImageView_profile.setImageResource(R.drawable.carrot_character03); break;
+            case 4 : holder.ImageView_profile.setImageResource(R.drawable.carrot_character04); break;
+            case 5 : holder.ImageView_profile.setImageResource(R.drawable.carrot_character05); break;
+            case 6 : holder.ImageView_profile.setImageResource(R.drawable.carrot_character06); break;
+            case 7 : holder.ImageView_profile.setImageResource(R.drawable.carrot_character07); break;
+            case 8 : holder.ImageView_profile.setImageResource(R.drawable.carrot_character08); break;
+            case 9 : holder.ImageView_profile.setImageResource(R.drawable.carrot_character09); break;
+            case 10 : holder.ImageView_profile.setImageResource(R.drawable.carrot_character10); break;
+            default: holder.ImageView_profile.setImageResource(R.drawable.carrot_character01);
+        }
+
         holder.TextView_nickname.setText(chat.getChat_user());
 
         if(chat.getChat_user().equals(myNickName)) {

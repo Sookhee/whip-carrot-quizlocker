@@ -100,4 +100,5 @@ public class RankingActivity extends AppCompatActivity {
         super.onBackPressed();
     }
 
+
 }
