@@ -36,11 +36,15 @@ public class LoginActivity extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference userReference = database.getReference("user");
 
+    public static Context mContext;
+
     String email, passwd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        mContext = this;
 
         firebaseAuth = firebaseAuth.getInstance();
 
@@ -127,7 +131,6 @@ public class LoginActivity extends AppCompatActivity {
                 editor.putString("userKey", dataSnapshot.getKey());
                 editor.commit();
 
-
             }
 
             @Override
@@ -145,8 +148,12 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-
-
     }
 
+    public int postCarrotCount(){
+        SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+
+        return pref.getInt("allCarrotCount", 0);
+
+    }
 }

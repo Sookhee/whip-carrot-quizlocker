@@ -1,6 +1,8 @@
 package kr.hs.emirim.shookhee.quizlocker.adapter;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,7 @@ import java.util.ArrayList;
 
 import kr.hs.emirim.shookhee.quizlocker.CollectionDetailActivity;
 import kr.hs.emirim.shookhee.quizlocker.CollectionPopupActivity;
+import kr.hs.emirim.shookhee.quizlocker.LoginActivity;
 import kr.hs.emirim.shookhee.quizlocker.R;
 import kr.hs.emirim.shookhee.quizlocker.model.Carrot;
 
@@ -20,8 +23,7 @@ import kr.hs.emirim.shookhee.quizlocker.model.Carrot;
 public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.ItemViewHolder> {
 
     private ArrayList<Carrot> listData = new ArrayList<>();
-    // 사용자 당근 개수 (임시)
-    int userCarrot = 90;
+    int userCarrot = ((LoginActivity)LoginActivity.mContext).postCarrotCount();
 
     @NonNull
     @Override
@@ -43,6 +45,8 @@ public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.It
         holder.info = carrot.getInfo();
         holder.img = carrot.getImgId();
         holder.unlockCount = carrot.getUnlockCount();
+
+        Log.e("CARROT", userCarrot + "");
 
         if(userCarrot < carrot.getUnlockCount()) {
             holder.ivCarrotImg.setImageResource(R.drawable.icon_question);
@@ -78,6 +82,7 @@ public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.It
                         Intent intent = new Intent(v.getContext(), CollectionDetailActivity.class);
                         intent.putExtra("name", name);
                         intent.putExtra("info", info);
+                        Log.e("INFO", info);
                         intent.putExtra("img", img);
                         intent.putExtra("carrotPosition", carrotPosition);
                         v.getContext().startActivity(intent);
@@ -95,4 +100,5 @@ public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.It
             ivCarrotImg.setImageResource(data.getImgId());
         }
     }
+
 }
