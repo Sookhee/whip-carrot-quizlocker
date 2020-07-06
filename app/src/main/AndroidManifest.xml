@@ -17,18 +17,19 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".ChatActivity"></activity>
-        <activity android:name=".ChattingActivity"></activity>
-        <activity android:name=".ChatRoomActivity">
-
-        </activity>
-        <activity android:name=".RankingActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".ChatActivity" />
+        <activity android:name=".ChattingActivity" />
+        <activity android:name=".ChatRoomActivity"></activity>
+        <activity android:name=".RankingActivity" />
+        <activity android:name=".LoginActivity">
+
         </activity>
         <activity android:name=".RegisterActivity" />
         <activity
@@ -42,9 +43,7 @@
                 android:theme="@style/popupTheme" />
         <activity android:name=".CollectionActivity" />
         <activity android:name=".SettingActivity" />
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".FileExActivity" />
         <activity android:name=".PrefExActivity" />
         <activity android:name=".PrefFragmentActivity" /> <!-- 암시적 인텐트로 실행되는 브로드캐스트 리시버 등록 -->

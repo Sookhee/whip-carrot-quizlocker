@@ -39,156 +39,162 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_main)
-        // preferenceContent FrameLayout 영역을 PreferenceFragment 로 교체
-        fragmentManager.beginTransaction().replace(R.id.preferenceContent, fragment).commit()
-
-        recyclerView = findViewById<View>(R.id.ranking_recyclerview) as RecyclerView
-        adapter = RankingAdapter()
-        mLayoutManager = LinearLayoutManager(this)
-        mLayoutManager!!.reverseLayout = true
-        mLayoutManager!!.stackFromEnd = true
-        recyclerView!!.layoutManager = mLayoutManager
-        recyclerView!!.adapter = adapter
-
-        userReference.orderByChild("carrotCount").limitToLast(3)
-            .addChildEventListener(object : ChildEventListener {
-                override fun onChildAdded(
-                    dataSnapshot: DataSnapshot,
-                    @Nullable s: String?
-                ) {
-                    rankingKey.add(dataSnapshot.key!!)
-                    userRanking.add(
-                        dataSnapshot.getValue(
-                            User::class.java
-                        )!!
-                    )
-                    val user =
-                        dataSnapshot.getValue(
-                            User::class.java
-                        )
-                    adapter!!.addItem(user)
-                    adapter!!.notifyDataSetChanged()
-                }
-
-                override fun onChildChanged(
-                    dataSnapshot: DataSnapshot,
-                    @Nullable s: String?
-                ) {
-                    rankingKey.add(dataSnapshot.key!!)
-                    userRanking.add(
-                        dataSnapshot.getValue(
-                            User::class.java
-                        )!!
-                    )
-                    val user =
-                        dataSnapshot.getValue(
-                            User::class.java
-                        )
-                    adapter!!.addItem(user)
-                    adapter!!.notifyDataSetChanged()
-                }
-
-                override fun onChildRemoved(dataSnapshot: DataSnapshot) {}
-                override fun onChildMoved(
-                    dataSnapshot: DataSnapshot,
-                    @Nullable s: String?
-                ) {
-                }
-
-                override fun onCancelled(databaseError: DatabaseError) {}
-            })
-
-        ivSetting.setOnClickListener{
-            val nextIntent = Intent(this, SettingActivity::class.java)
-            startActivity(nextIntent)
-        }
-
-        userProfileCarrotImage.setOnClickListener{
-            val nextIntent = Intent(this, CollectionActivity::class.java)
-            startActivity(nextIntent)
-        }
-
-        showMoreRankingButton.setOnClickListener{
-            val nextIntent = Intent(this, RankingActivity::class.java)
-            startActivity(nextIntent)
-        }
-
-        goChatting.setOnClickListener{
-            val nextIntent = Intent(this, ChatRoomActivity::class.java)
-            startActivity(nextIntent)
-        }
-
-        val database = FirebaseDatabase.getInstance()
-        val userReference = database.getReference("user")
-
         val pref =
             getSharedPreferences("pref", Context.MODE_PRIVATE)
         val editor = pref.edit()
 
-        userReference.orderByChild("email").equalTo(pref.getString("userEmail", ""))
-            .addChildEventListener(object : ChildEventListener {
-                override fun onChildAdded(
-                    dataSnapshot: DataSnapshot,
-                    @Nullable s: String?
-                ) {
-                    val user =
-                        dataSnapshot.getValue(
-                            User::class.java
+        val isLogin = pref.getBoolean("isLogin", false)
+
+        if(isLogin == true){
+            setContentView(R.layout.activity_main)
+            // preferenceContent FrameLayout 영역을 PreferenceFragment 로 교체
+            fragmentManager.beginTransaction().replace(R.id.preferenceContent, fragment).commit()
+
+            recyclerView = findViewById<View>(R.id.ranking_recyclerview) as RecyclerView
+            adapter = RankingAdapter()
+            mLayoutManager = LinearLayoutManager(this)
+            mLayoutManager!!.reverseLayout = true
+            mLayoutManager!!.stackFromEnd = true
+            recyclerView!!.layoutManager = mLayoutManager
+            recyclerView!!.adapter = adapter
+
+            userReference.orderByChild("carrotCount").limitToLast(3)
+                .addChildEventListener(object : ChildEventListener {
+                    override fun onChildAdded(
+                        dataSnapshot: DataSnapshot,
+                        @Nullable s: String?
+                    ) {
+                        rankingKey.add(dataSnapshot.key!!)
+                        userRanking.add(
+                            dataSnapshot.getValue(
+                                User::class.java
+                            )!!
                         )
-                    carrotCountTextView.text = "${user!!.carrotCount} 개"
-                    userName.text = user.nickname
-                    when (user.profileId) {
-                        1 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character01)
-                        2 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character02)
-                        3 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character03)
-                        4 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character04)
-                        5 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character05)
-                        6 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character06)
-                        7 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character07)
-                        8 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character08)
-                        9 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character09)
-                        10 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character10)
-                        else -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character01)
+                        val user =
+                            dataSnapshot.getValue(
+                                User::class.java
+                            )
+                        adapter!!.addItem(user)
+                        adapter!!.notifyDataSetChanged()
                     }
-                }
 
-                override fun onChildChanged(
-                    dataSnapshot: DataSnapshot,
-                    @Nullable s: String?
-                ) {
-                    val user =
-                        dataSnapshot.getValue(
-                            User::class.java
+                    override fun onChildChanged(
+                        dataSnapshot: DataSnapshot,
+                        @Nullable s: String?
+                    ) {
+                        rankingKey.add(dataSnapshot.key!!)
+                        userRanking.add(
+                            dataSnapshot.getValue(
+                                User::class.java
+                            )!!
                         )
-                    carrotCountTextView.text = "${user!!.carrotCount} 개"
-                    userName.text = user.nickname
-                    when (user.profileId) {
-                        1 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character01)
-                        2 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character02)
-                        3 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character03)
-                        4 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character04)
-                        5 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character05)
-                        6 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character06)
-                        7 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character07)
-                        8 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character08)
-                        9 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character09)
-                        10 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character10)
-                        else -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character01)
+                        val user =
+                            dataSnapshot.getValue(
+                                User::class.java
+                            )
+                        adapter!!.addItem(user)
+                        adapter!!.notifyDataSetChanged()
                     }
-                }
 
-                override fun onChildRemoved(dataSnapshot: DataSnapshot) {}
-                override fun onChildMoved(
-                    dataSnapshot: DataSnapshot,
-                    @Nullable s: String?
-                ) {
-                }
+                    override fun onChildRemoved(dataSnapshot: DataSnapshot) {}
+                    override fun onChildMoved(
+                        dataSnapshot: DataSnapshot,
+                        @Nullable s: String?
+                    ) {
+                    }
 
-                override fun onCancelled(databaseError: DatabaseError) {}
-            })
+                    override fun onCancelled(databaseError: DatabaseError) {}
+                })
 
+            ivSetting.setOnClickListener{
+                val nextIntent = Intent(this, SettingActivity::class.java)
+                startActivity(nextIntent)
+            }
 
+            userProfileCarrotImage.setOnClickListener{
+                val nextIntent = Intent(this, CollectionActivity::class.java)
+                startActivity(nextIntent)
+            }
+
+            showMoreRankingButton.setOnClickListener{
+                val nextIntent = Intent(this, RankingActivity::class.java)
+                startActivity(nextIntent)
+            }
+
+            goChatting.setOnClickListener{
+                val nextIntent = Intent(this, ChatRoomActivity::class.java)
+                startActivity(nextIntent)
+            }
+
+            val database = FirebaseDatabase.getInstance()
+            val userReference = database.getReference("user")
+
+            userReference.orderByChild("email").equalTo(pref.getString("userEmail", ""))
+                .addChildEventListener(object : ChildEventListener {
+                    override fun onChildAdded(
+                        dataSnapshot: DataSnapshot,
+                        @Nullable s: String?
+                    ) {
+                        val user =
+                            dataSnapshot.getValue(
+                                User::class.java
+                            )
+                        carrotCountTextView.text = "${user!!.carrotCount} 개"
+                        userName.text = user.nickname
+                        when (user.profileId) {
+                            1 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character01)
+                            2 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character02)
+                            3 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character03)
+                            4 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character04)
+                            5 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character05)
+                            6 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character06)
+                            7 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character07)
+                            8 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character08)
+                            9 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character09)
+                            10 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character10)
+                            else -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character01)
+                        }
+                    }
+
+                    override fun onChildChanged(
+                        dataSnapshot: DataSnapshot,
+                        @Nullable s: String?
+                    ) {
+                        val user =
+                            dataSnapshot.getValue(
+                                User::class.java
+                            )
+                        carrotCountTextView.text = "${user!!.carrotCount} 개"
+                        userName.text = user.nickname
+                        when (user.profileId) {
+                            1 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character01)
+                            2 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character02)
+                            3 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character03)
+                            4 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character04)
+                            5 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character05)
+                            6 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character06)
+                            7 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character07)
+                            8 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character08)
+                            9 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character09)
+                            10 -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character10)
+                            else -> userProfileCarrotImage.setImageResource(R.drawable.carrot_character01)
+                        }
+                    }
+
+                    override fun onChildRemoved(dataSnapshot: DataSnapshot) {}
+                    override fun onChildMoved(
+                        dataSnapshot: DataSnapshot,
+                        @Nullable s: String?
+                    ) {
+                    }
+
+                    override fun onCancelled(databaseError: DatabaseError) {}
+                })
+        }
+
+        else{
+            finish()
+        }
     }
 
     class MyPreferenceFragment : PreferenceFragment() {

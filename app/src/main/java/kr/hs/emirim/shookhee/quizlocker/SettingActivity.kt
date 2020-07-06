@@ -1,12 +1,15 @@
 package kr.hs.emirim.shookhee.quizlocker
 
+import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.preference.MultiSelectListPreference
 import android.preference.PreferenceFragment
 import android.preference.SwitchPreference
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_setting.*
 
 class SettingActivity : AppCompatActivity() {
@@ -19,6 +22,22 @@ class SettingActivity : AppCompatActivity() {
 
         ivBack.setOnClickListener {
             super.onBackPressed()
+        }
+
+        settingLogout.setOnClickListener{
+            FirebaseAuth.getInstance().signOut()
+
+            val pref =
+                getSharedPreferences("pref", Context.MODE_PRIVATE)
+            val editor = pref.edit()
+
+            editor.putBoolean("isLogin", false)
+            editor.commit()
+
+            val intent = Intent(this@SettingActivity, LoginActivity::class.java)
+            startActivity(intent)
+
+            finish()
         }
     }
 
